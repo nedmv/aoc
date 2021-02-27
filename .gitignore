@@ -1,0 +1,10 @@
+#Generated dirs
+20?? 
+build
+
+#AOC session cookie
+.aoc_token
+
+#Tools
+.clang-format
+.vscode
