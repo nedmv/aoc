@@ -4,7 +4,7 @@
 #include <regex>
 #include <string>
 #include <vector>
-#include <bitset> //day 5
+#include <bitset>
 
 #include "Task.hpp"
 
@@ -267,6 +267,51 @@ const string solve_05b(vector<string> input) {
   return to_string(b._Find_first() + min_id);
 }
 
+const string solve_06a(vector<string> input) {
+  bitset<26> b;
+  size_t result = 0;
+  size_t size = 0;
+  uint8_t id = 0;
+  for (size_t i = 0; i < input.size(); i++) {
+    size = input[i].size();
+    if (size == 0) {
+      result += b.count();
+      b.reset();
+    } else {
+      for (size_t j = 0; j < size; j++) {
+        id = input[i].at(j) - 'a'; 
+        b[id] = true;
+      }
+    }
+  }
+  result += b.count();
+  return to_string(result);
+}
+
+const string solve_06b(vector<string> input) {
+  bitset<26> common_answers, current_answers;
+  common_answers.set();
+  size_t result = 0;
+  size_t size = 0;
+  uint8_t id = 0;
+  for (size_t i = 0; i < input.size(); i++) {
+    size = input[i].size();
+    if (size == 0) {
+      result += common_answers.count();
+      common_answers.set();
+    } else {
+      for (size_t j = 0; j < size; j++) {
+        id = input[i].at(j) - 'a'; 
+        current_answers[id] = true;
+      }
+      common_answers = common_answers & current_answers;
+      current_answers.reset();
+    }
+  }
+  result += common_answers.count();
+  return to_string(result);
+}
+
 int main() {
   Task t = Task();
   t.execute("01a", solve_01a);
@@ -283,5 +328,8 @@ int main() {
 
   t.execute("05a", solve_05a);
   t.execute("05b", solve_05b);
+
+  t.execute("06a", solve_06a);
+  t.execute("06b", solve_06b);
   return 0;
 }
