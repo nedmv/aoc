@@ -10,6 +10,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 add_executable(aoc main.cpp Task.cpp)
 
-#TODO: Check on another platform. Better solution?
+#TODO: Make this year independent.
 execute_process(COMMAND ${CMAKE_COMMAND} -E create_symlink ${CMAKE_SOURCE_DIR}/2020
                                                            ${CMAKE_BINARY_DIR}/2020)
