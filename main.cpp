@@ -340,13 +340,13 @@ class Bag {
   string _name;
 };
 
-bool isInsideBag(const string name, Bag &bag) {
+inline bool isInsideBag(const string name, Bag &bag) {
   auto insides = bag._insides;
   if (insides.find(name) != insides.end()) return true;
   return false;
 }
 
-bool isInsideList(const string name, vector<string> list) {
+inline bool isInsideList(const string name, vector<string> list) {
   if (find(list.begin(), list.end(), name) != list.end()) return true;
   return false;
 }
@@ -423,6 +423,59 @@ const string solve_07b(vector<string> input) {
   return to_string(countInsides("shiny gold", bags) - 1);
 }
 
+//
+// DAY 8
+//
+
+enum Operation { ACC, JMP, NOP };
+class Instruction {
+ public:
+  ~Instruction(){};
+  Instruction(const string input, int &acc) : wasExecuted{false}, _acc{acc} {
+    smatch match;
+    regex_match(input, match, regex(R"((acc|jmp|nop) ([+-][0-9]+))"));
+    if (match[1].str() == "acc") {
+      _op = ACC;
+    } else if (match[1].str() == "jmp") {
+      _op = JMP;
+    } else {
+      _op = NOP;
+    }
+    _num = stoi(match[2].str());
+  }
+  int execute() {
+    int next = 1;
+    if (_op == JMP) {
+      next = _num;
+    }
+    if (_op == ACC) {
+      _acc += _num;
+    }
+    wasExecuted = true;
+    return next;
+  }
+  bool wasExecuted;
+
+ private:
+  Operation _op;
+  int _num;
+  int &_acc;
+};
+
+const string solve_08a(vector<string> input) {
+  vector<Instruction> instructions;
+  int acc = 0;
+  for (size_t i = 0; i < input.size(); i++) {
+    Instruction cmd(input[i], acc);
+    instructions.push_back(cmd);
+  }
+  int num = 0;
+  while (!instructions[num].wasExecuted) {
+    num += instructions[num].execute();
+  }
+  return to_string(acc);
+}
+
 int main() {
   Task t = Task();
   t.execute("01a", solve_01a);
@@ -445,5 +498,8 @@ int main() {
 
   t.execute("07a", solve_07a);
   t.execute("07b", solve_07b);
+
+  t.execute("08a", solve_08a);
+  //t.execute("08b", solve_08b);
   return 0;
 }
