@@ -4,12 +4,11 @@ project(aoc2020 VERSION 0.1)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+# TODO: get rid of GLOB.
+# Proposed solution: regenerate CMakeLists.txt at day's init
+file(GLOB_RECURSE src_2020 CONFIGURE_DEPENDS "2020/*.cpp")
 
-# file(GLOB aoc_src CONFIGURE_DEPENDS "*.hpp" "*.cpp")
-# add_executable(aoc ${aoc_src})
+add_executable(aoc main.cpp Task.cpp ${src_2020})
 
-add_executable(aoc main.cpp Task.cpp)
-
-#TODO: Make this year independent.
 execute_process(COMMAND ${CMAKE_COMMAND} -E create_symlink ${CMAKE_SOURCE_DIR}/2020
                                                            ${CMAKE_BINARY_DIR}/2020)

@@ -1,5 +1,9 @@
-#Generated dirs
-20?? 
+#Content in puzzle dirs, except for code itself.
+20??/??/*
+!20??/??/*.cpp
+!20??/??/*.hpp
+
+#Build
 build
 
 #AOC session cookie
