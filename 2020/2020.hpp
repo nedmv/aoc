@@ -36,4 +36,10 @@ const std::string solve_07b(std::vector<std::string> input);
 const std::string solve_08a(std::vector<std::string> input);
 const std::string solve_08b(std::vector<std::string> input);
 
+const std::string solve_09a(std::vector<std::string> input);
+const std::string solve_09b(std::vector<std::string> input);
+
+const std::string solve_10a(std::vector<std::string> input);
+const std::string solve_10b(std::vector<std::string> input);
+
 }

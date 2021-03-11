@@ -38,5 +38,11 @@ int main() {
 
   t.execute("08a", solve_08a);
   t.execute("08b", solve_08b);
+
+  t.execute("09a", solve_09a);
+  t.execute("09b", solve_09b);
+
+  t.execute("10a", solve_10a);
+  t.execute("10b", solve_10b);
   return 0;
 }
