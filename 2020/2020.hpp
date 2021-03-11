@@ -8,7 +8,7 @@
 #include <string>
 #include <vector>
 
-#define ERROR_STRING "ERROR"
+#include "../Task.hpp" //ERROR_STRING
 
 namespace y2020 {
 

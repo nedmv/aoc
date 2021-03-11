@@ -36,6 +36,12 @@ typedef const std::string (*solution_t)(std::vector<std::string>);
  */
 #define WRONG_ANSWER_EXT ".wrong"
 
+/**
+ * @brief This string is used as certainly incorrect solver output.
+ * 
+ */
+#define ERROR_STRING "ERROR"
+
 
 class Task {
  public:

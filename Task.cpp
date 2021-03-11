@@ -102,6 +102,8 @@ bool Task::check() {
   ifstream ifs;
   string answer;
 
+  if (_result == ERROR_STRING) return false;
+
   if (filesystem::exists(right_path)) {
     ifs = ifstream(right_path);
     getline(ifs, answer);
