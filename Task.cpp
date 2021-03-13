@@ -1,34 +1,34 @@
 #include "Task.hpp"
-#include <filesystem>
+
 #include <cassert>
 #include <chrono>
-#include <iostream>
+#include <filesystem>
 #include <fstream>
+#include <iostream>
+#include <numeric>
 
 using namespace std;
 using namespace std::chrono;
 
-Task::Task(string id, solution_t solver){
+Task::Task(string id, solution_t solver) {
   _setId(id);
-  _time = 0;
   this->solve = solver;
 }
 
 const string Task::execute(string id, solution_t solver) {
   _setId(id);
-  _time = 0;
   this->solve = solver;
   _input.clear();
   _result.clear();
 
   cout << "\nTask " << _id << ":" << endl;
-  
+
   read_input();
-  benchmark();
+  time_t time = benchmark();
 
   if (check()) {
     celebrate();
-    cout << "Execution took " << _time << " microseconds." << endl;
+    cout << "Execution took " << time << " microseconds." << endl;
   } else {
     celibate();
   }
@@ -63,16 +63,39 @@ void Task::celibate() {
   cout << "Try something other than " << _result << "." << endl;
 
   string errors = wrongAnswerPath();
-  auto ofs = ofstream(errors,ofstream::app);
+  auto ofs = ofstream(errors, ofstream::app);
   ofs << _result << endl;
 }
 
-int64_t Task::benchmark() {
+time_t Task::benchmark() {
   auto start = high_resolution_clock::now();
   _result = solve(_input);
   auto end = high_resolution_clock::now();
-  _time = duration_cast<microseconds>(end - start).count();
-  return _time;
+  time_t time = duration_cast<microseconds>(end - start).count();
+  return time;
+}
+
+void Task::multirun(std::string id, solution_t solver, size_t n) {
+  _setId(id);
+  this->solve = solver;
+  _input.clear();
+  _result.clear();
+  read_input();
+  vector<time_t> bench(n, 0);
+
+  for (size_t i = 0; i < n; i++) {
+    bench[i] = benchmark();
+  }
+
+  auto results = minmax(bench.begin(), bench.end() - 1);
+  time_t max = *results.first;
+  time_t min = *results.second;
+  // not an accurate average, but results were already rounded to microseconds
+  time_t avg = accumulate(bench.begin(), bench.end(), 0) / n;
+
+  cout << "Task " << id << " was executed " << n << " times.\n";
+  cout << "Times(microseconds): average = " << avg << ", min = " << min
+       << ", max = " << max << "." << endl;
 }
 
 const string Task::getId() {
@@ -95,7 +118,7 @@ inline void Task::_setId(const string id) {
   _id = id;
 }
 
-//TODO: add auto check as alternative
+// TODO: add auto check as alternative
 bool Task::check() {
   const string right_path = rightAnswerPath();
   const string wrong_path = wrongAnswerPath();
@@ -107,24 +130,24 @@ bool Task::check() {
   if (filesystem::exists(right_path)) {
     ifs = ifstream(right_path);
     getline(ifs, answer);
-    if (_result == answer ) return true;
+    if (_result == answer) return true;
     return false;
-  } 
+  }
 
   if (filesystem::exists(wrong_path)) {
     ifs = ifstream(wrong_path);
-    while (getline(ifs,answer)) {
-      if (_result == answer ) return false;
+    while (getline(ifs, answer)) {
+      if (_result == answer) return false;
     }
   }
-  //manually check for answer
+  // manually check for answer
   cout << "Result is " << _result << ".\n";
   cout << "Please manually check it at https://adventofcode.com/";
   cout << YEAR << "/day/" << stoi(getId()) << "." << endl;
   cout << "Is result correct? (y/n)" << endl;
 
   char c;
-  while(true) {
+  while (true) {
     cin.get(c);
     if (c == 'n' || c == 'N') return false;
     if (c == 'y' || c == 'Y') return true;
