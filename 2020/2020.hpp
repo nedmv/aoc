@@ -7,6 +7,7 @@
 #include <regex>
 #include <string>
 #include <vector>
+#include <cmath>
 
 #include "../Task.hpp" //ERROR_STRING
 
@@ -44,5 +45,8 @@ const std::string solve_10b(std::vector<std::string> input);
 
 const std::string solve_11a(std::vector<std::string> input);
 const std::string solve_11b(std::vector<std::string> input);
+
+const std::string solve_12a(std::vector<std::string> input);
+const std::string solve_12b(std::vector<std::string> input);
 
 }
