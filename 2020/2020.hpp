@@ -49,4 +49,7 @@ const std::string solve_11b(std::vector<std::string> input);
 const std::string solve_12a(std::vector<std::string> input);
 const std::string solve_12b(std::vector<std::string> input);
 
+const std::string solve_13a(std::vector<std::string> input);
+const std::string solve_13b(std::vector<std::string> input);
+
 }
