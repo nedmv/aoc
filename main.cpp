@@ -52,6 +52,6 @@ int main() {
   t.execute("12b", solve_12b);
 
   t.execute("13a", solve_13a);
-  // t.execute("13b", solve_13b);
+  t.execute("13b", solve_13b);
   return 0;
 }
