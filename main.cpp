@@ -7,8 +7,8 @@
 #include <string>
 #include <vector>
 
-#include "Task.hpp"
 #include "2020/2020.hpp"
+#include "Task.hpp"
 
 using namespace std;
 using namespace y2020;
@@ -56,5 +56,10 @@ int main() {
 
   t.execute("14a", solve_14a);
   t.execute("14b", solve_14b);
+
+  t.execute("15a", solve_15a);
+  // runs ~40 seconds at my configuration with current solution
+  // t.execute("15b", solve_15b);
+
   return 0;
 }
