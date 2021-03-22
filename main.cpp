@@ -58,8 +58,7 @@ int main() {
   t.execute("14b", solve_14b);
 
   t.execute("15a", solve_15a);
-  // runs ~40 seconds at my configuration with current solution
-  // t.execute("15b", solve_15b);
+  t.execute("15b", solve_15b);
 
   return 0;
 }

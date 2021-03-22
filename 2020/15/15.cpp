@@ -1,43 +1,56 @@
 #include "../2020.hpp"
 using namespace std;
 
-size_t countLastAge(vector<size_t> &nums) {
-  auto it = find(nums.rbegin() + 1, nums.rend(), *nums.rbegin());
-  if (it == nums.rend()) return 0;
-  return it - nums.rbegin();
-}
-
-#if 0  // too slow for part b.
+/**
+ * @brief
+ * Debug: ~1 second
+ * Release: ~0.7 seconds
+ *
+ */
 size_t solveUsingVector(vector<string> &input, size_t last_num) {
   string s;
-  vector<size_t> nums;
+  vector<size_t> data(last_num + 1, 0);
+  size_t prev;
+  size_t next;
+  size_t pos = 1;
+  size_t value;
 
   for (size_t i = 0; i < input.size(); i++) {
     s = input[i];
     size_t begin = 0;
     size_t end = s.find(",");
     while (true) {
-      nums.push_back(stoi(s.substr(begin, end - begin)));
-      if (end == s.npos) break;
+      prev = stoi(s.substr(begin, end - begin));
+      if (end == s.npos) break;  // intentionally don't insert last number here
+      data[prev] = pos;
+      pos++;
       begin = end + 1;
       end = s.find(",", begin);
     }
   }
-  for (size_t i = nums.size(); i < last_num; i++) {
-    nums.push_back(countLastAge(nums));
+  for (pos; pos < last_num; pos++) {
+    value = data[prev];
+    if (value) {
+      next = pos - value;
+    } else {
+      next = 0;
+    }
+    data[prev] = pos;
+    prev = next;
   }
-  return *(nums.end() - 1);
+  return next;
 }
-#endif
 
 /**
- * @brief Much faster than first approach, through still takes ~40 seconds
- * for my PC to count part b.
+ * @brief
+ * Debug: ~23 seconds
+ * Release: ~10 seconds
  *
  */
 size_t solveUsingMap(vector<string> &input, size_t last_num) {
   string s;
   map<size_t, size_t> data;  // 0 - num, 1 - last pos.
+  map<size_t, size_t>::iterator it;
   size_t prev;
   size_t next;
   size_t pos = 0;
@@ -56,21 +69,65 @@ size_t solveUsingMap(vector<string> &input, size_t last_num) {
     }
   }
   for (pos; pos < last_num - 1; pos++) {
-    if (data.contains(prev)) {
-      next = pos - data[prev];
+    it = data.find(prev);
+    if (it != data.end()) {
+      next = pos - (*it).second;
+      (*it).second = pos;
     } else {
       next = 0;
+      data[prev] = pos;
     }
-    data[prev] = pos;
     prev = next;
   }
-  return prev;
+  return next;
+}
+
+/**
+ * @brief
+ * Debug: ~5 seconds
+ * Release: ~1.7 seconds
+ *
+ */
+size_t solveUsingUnorderedMap(vector<string> &input, size_t last_num) {
+  string s;
+  unordered_map<size_t, size_t> data;  // 0 - num, 1 - last pos.
+  unordered_map<size_t, size_t>::iterator it;
+  data.reserve(last_num);
+  size_t prev;
+  size_t next;
+  size_t pos = 0;
+
+  for (size_t i = 0; i < input.size(); i++) {
+    s = input[i];
+    size_t begin = 0;
+    size_t end = s.find(",");
+    while (true) {
+      prev = stoi(s.substr(begin, end - begin));
+      if (end == s.npos) break;  // intentionally don't insert last number here
+      data.insert_or_assign(prev, pos);
+      pos++;
+      begin = end + 1;
+      end = s.find(",", begin);
+    }
+  }
+  for (pos; pos < last_num - 1; pos++) {
+    it = data.find(prev);
+    if (it != data.end()) {
+      next = pos - (*it).second;
+      (*it).second = pos;
+    } else {
+      next = 0;
+      data[prev] = pos;
+    }
+    prev = next;
+  }
+  return next;
 }
 
 const std::string y2020::solve_15a(std::vector<std::string> input) {
-  return to_string(solveUsingMap(input, 2020));
+  return to_string(solveUsingVector(input, 2020));
 }
 
 const std::string y2020::solve_15b(std::vector<std::string> input) {
-  return to_string(solveUsingMap(input, 30000000));
+  return to_string(solveUsingVector(input, 30000000));
 }
