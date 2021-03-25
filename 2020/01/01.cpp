@@ -1,3 +1,5 @@
+// Puzzle is available at https://adventofcode.com/2020/day/1
+// Keywords: std::transform
 #include "../2020.hpp"
 using namespace std;
 

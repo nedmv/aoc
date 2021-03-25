@@ -1,3 +1,5 @@
+// Puzzle is available at https://adventofcode.com/2020/day/2
+// Keywords: regex
 #include "../2020.hpp"
 using namespace std;
 

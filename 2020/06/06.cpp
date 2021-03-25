@@ -1,3 +1,5 @@
+// Puzzle is available at https://adventofcode.com/2020/day/6
+// Keywords: bitset
 #include "../2020.hpp"
 using namespace std;
 
