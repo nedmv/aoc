@@ -10,28 +10,21 @@
 typedef const std::string (*solution_t)(std::vector<std::string>);
 
 /**
- * @brief Puzzle year (string)
- * Used to determine relative path to puzzle files.
- *
- */
-#define YEAR "2020"
-
-/**
  * @brief Filename of puzzle input.
- * Relative path to file will be YEAR/<day>/INPUT
+ * Relative path to file will be <year>/<day>/INPUT
  */
 #define INPUT "input"
 
 /**
  * @brief File extension for right answers.
- * Relative path to file will be YEAR/<day>/<Task::_id>.<chosen_ext>
+ * Relative path to file will be <year>/<day>/<Task::_id>.<chosen_ext>
  *
  */
 #define RIGHT_ANSWER_EXT ".right"
 
 /**
  * @brief File extension for wrong answers.
- * Relative path to file will be YEAR/<day>/<Task::_id>.<chosen_ext>
+ * Relative path to file will be <year>/<day>/<Task::_id>.<chosen_ext>
  *
  */
 #define WRONG_ANSWER_EXT ".wrong"
@@ -145,13 +138,20 @@ class Task {
   const char getPartId();
 
   /**
+   * @brief Set puzzle year. It is used to determine relative path to puzzle files.
+   * 
+   * @param year 
+   */
+  void setYear(int year);
+
+  /**
    * @brief Prepend filename with relative path to puzzle dir.
    *
    * @param filename name of file
    * @return const string relative path
    */
   inline const std::string puzzleDirPath(const std::string filename) {
-    return std::string(YEAR) + "/" + getId() + "/" + filename;
+    return _year + "/" + getId() + "/" + filename;
   }
 
   inline const std::string inputPath() { return puzzleDirPath(INPUT); }
@@ -173,6 +173,8 @@ class Task {
    * @param id std::string (length must be 3).
    */
   inline void _setId(const std::string id);
+
+  std::string _year;
 
   // TODO: consider using a struct for id.
   /**

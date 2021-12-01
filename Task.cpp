@@ -21,7 +21,7 @@ const string Task::execute(string id, solution_t solver) {
   _input.clear();
   _result.clear();
 
-  cout << "\nTask " << _id << ":" << endl;
+  cout << "\nTask " << _year << "-" << _id << ":" << endl;
 
   read_input();
   time_t time = benchmark();
@@ -49,7 +49,7 @@ void Task::read_input() {
 }
 
 void Task::celebrate() {
-  cout << "Task " << _id << " solved! Result = " << _result << "." << endl;
+  cout << "Task " << _year << "-" << _id << " solved! Result = " << _result << "." << endl;
 
   auto answer = rightAnswerPath();
   if (!filesystem::exists(answer)) {
@@ -59,7 +59,7 @@ void Task::celebrate() {
 }
 
 void Task::celibate() {
-  cout << "Solution for task " << _id << " is incorrect." << endl;
+  cout << "Solution for task "<< _year << "-" << _id << " is incorrect." << endl;
   cout << "Try something other than " << _result << "." << endl;
 
   string errors = wrongAnswerPath();
@@ -143,7 +143,7 @@ bool Task::check() {
   // manually check for answer
   cout << "Result is " << _result << ".\n";
   cout << "Please manually check it at https://adventofcode.com/";
-  cout << YEAR << "/day/" << stoi(getId()) << "." << endl;
+  cout << _year << "/day/" << stoi(getId()) << "." << endl;
   cout << "Is result correct? (y/n)" << endl;
 
   char c;
@@ -153,4 +153,8 @@ bool Task::check() {
     if (c == 'y' || c == 'Y') return true;
     cout << "Failed to recognize symbol, please type 'y' or 'n'." << endl;
   }
+}
+
+void Task::setYear(int year) {
+  _year = to_string(year);
 }

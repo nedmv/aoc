@@ -77,10 +77,10 @@ def init_puzzle_source(year, day):
     with open(path, 'w') as f:
       f.write(f'#include "../{year}.hpp"'+'\n')
       f.write('using namespace std;\n\n')
-      f.write(f'const std::string y{year}::solve_{day}a(std::vector<std::string> input)' + '{\n\n\n')
+      f.write(f'const std::string y{year}::solve_{day}a(std::vector<std::string> input)' + ' {\n\n\n')
       f.write('  return ERROR_STRING;\n')
       f.write('}\n\n')
-      f.write(f'const std::string y{year}::solve_{day}b(std::vector<std::string> input)' + '{\n\n\n')
+      f.write(f'const std::string y{year}::solve_{day}b(std::vector<std::string> input)' + ' {\n\n\n')
       f.write('  return ERROR_STRING;\n')
       f.write('}\n')
     print(f"Successfully initialized {path}")
@@ -160,7 +160,7 @@ def main():
   """  
   parser = argparse.ArgumentParser()
   parser.add_argument('year', nargs='+', metavar='YEAR', type=int, 
-                      help = "valid adventofcode.com year (2015-2020)")
+                      help = "valid adventofcode.com year (2015-2021)")
   parser.add_argument('day', nargs='+', metavar='DAY', type=int, 
                       help = "valid adventofcode.com day (1-25)")
   args = parser.parse_args()
@@ -168,7 +168,7 @@ def main():
   day = args.day[0]
 
   #TODO: handle future years
-  assert (year >= 2015 and year <= 2020)
+  assert (year >= 2015 and year <= 2021)
   assert (day >= 1 and day <= 25)
   init_puzzle_dir(year, day)
   #TODO: check if it's necessary to rewrite input when part2 unlocks.
