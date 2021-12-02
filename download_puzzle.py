@@ -75,6 +75,8 @@ def init_puzzle_source(year, day):
     print(f"{path} already initialized!")
   else:
     with open(path, 'w') as f:
+      f.write(f'// Puzzle is available at https://adventofcode.com/{year}/day/{day}'+'\n')
+      f.write(f'// Keywords:'+'\n')
       f.write(f'#include "../{year}.hpp"'+'\n')
       f.write('using namespace std;\n\n')
       f.write(f'const std::string y{year}::solve_{day}a(std::vector<std::string> input)' + ' {\n\n\n')
