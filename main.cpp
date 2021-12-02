@@ -20,6 +20,10 @@ void year2021() {
 
   t.execute("01a", solve_01a);
   t.execute("01b", solve_01b);
+
+  t.execute("02a", solve_02a);
+  t.execute("02b", solve_02b);
+
 }
 
 void year2020() {
@@ -77,6 +81,6 @@ void year2020() {
 }
 
 int main() {
-  year2020();
+  // year2020();
   year2021();
 }
