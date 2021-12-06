@@ -1,21 +1,8 @@
 // Puzzle is available at https://adventofcode.com/2021/day/06
 // Keywords:
 #include "../2021.hpp"
+#include "../../utils.hpp"
 using namespace std;
-
-static vector<int> parseLineOfNumbers(std::string line) {
-  vector<int> result;
-  size_t last = 0;
-  size_t next = 0;
-  std::string token;
-  while ((next = line.find(',', last)) <= line.size()) {
-    token = line.substr(last, next - last);
-    result.push_back(stoi(token.c_str()));
-    last = next + 1;
-  }
-  result.push_back(stoi(line.substr(last, line.size())));
-  return result;
-}
 
 // each fish has it's own counter, works only for low fish amounts
 size_t countFishNaive(const std::string &initialState, int lastDay) {

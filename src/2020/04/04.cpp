@@ -1,6 +1,7 @@
 // Puzzle is available at https://adventofcode.com/2020/day/4
 // Keywords: regex
 #include "../2020.hpp"
+#include "../../utils.hpp"
 using namespace std;
 
 const std::string y2020::solve_04a(std::vector<std::string> input) {
@@ -24,8 +25,6 @@ const std::string y2020::solve_04a(std::vector<std::string> input) {
 
   return to_string(valid_passports);
 }
-
-static inline int16_t ToInt(ssub_match m) { return stoi(m.str()); }
 
 // input should end with empty string for correct processing
 const std::string y2020::solve_04b(std::vector<std::string> input) {

@@ -22,6 +22,10 @@ class Field {
     return ((x >= _min1) && (x <= _max1)) || ((x >= _min2) && (x <= _max2));
   }
 
+  const string getName() {
+    return _name;
+  }
+
  private:
   string _name;
   uint32_t _min1;
@@ -58,16 +62,71 @@ bool checkRanges(vector<uint32_t> &values, vector<Field> &fields, vector<vector<
   return true;
 }
 
-void mergeChecks(vector<vector<bool>> &in, vector<vector<bool>> &merged) {
-  size_t size = in.size();
-  for (size_t i = 0; i < size; ++i) {
-    for (size_t j = 0; j < size; ++j) {
-      if (in[i][j] != merged[i][j]) {
-        merged[i][j] = false;
+class Checklist {
+  public:
+  Checklist(size_t size):
+    _checks{vector(size, vector<bool>(size, true))},
+    _counters{vector(size, size)} {}
+  ~Checklist() {}
+
+  bool merge(Checklist &list) {
+    size_t size = _checks.size();
+    for (size_t i = 0; i < size; ++i) {
+      for (size_t j = 0; j < size; ++j) {
+        if (_checks[i][j] != list._checks[i][j]) {
+          _checks[i][j] = false;
+          _counters[i]--;
+        }
+      }
+      cout << _counters[i] << ' ';
+    }
+    cout << endl;
+    return check_counters();
+  }
+
+  bool check_counters() { 
+    for (auto &c : _counters) {
+      if (c != 1) return false;
+    }
+    return true;
+    }
+
+  vector<size_t> getDepartureIndices(vector<Field> &fields) {
+    vector<size_t> result;
+    for (size_t i = 0; i < fields.size(); i++) {
+      if (fields[i].getName().find("departure") != string::npos) {
+        for (size_t j = 0; j < _checks.size(); j++) {
+          if (_checks[i][j]) { 
+            result.push_back(j);
+          }
+        }
       }
     }
+    return result;
   }
+
+  bool checkRanges(vector<uint32_t> values, vector<Field> &fields) {
+  size_t size = fields.size();
+  uint32_t value;
+  for (size_t i = 0; i < size; ++i) {
+    value = values[i];
+    _counters[i] = 0;
+    for (size_t j = 0; j < size; ++j) {
+      if (fields[j].inRange(value)) {
+        _checks[i][j] = true;
+        _counters[i]++;
+      } else {
+        _checks[i][j] = false;
+      }
+    }
+    if (!_counters[i]) return false;
+  }
+  return true;
 }
+  protected:
+    vector<vector<bool>> _checks;
+    vector<size_t> _counters;
+};
 
 bool inRanges(uint32_t x, vector<Field> &fields) {
   for (bool check : checkRanges(x, fields)) {
@@ -175,18 +234,21 @@ const std::string y2020::solve_16b(std::vector<std::string> input) {
 
   i += 3;
 
-  vector<uint32_t> ticket;
-
-  vector<vector<bool>> possibleChecks(size, vector<bool>(size, true));
-  vector<vector<bool>> currentChecks(size, vector<bool>(size, false));
+  Checklist possibleChecks(size);
+  Checklist currentChecks(size);
 
   for (i; i < input.size(); i++) {
-    ticket = loadTicket(input[i]);
-    if (checkRanges(ticket, fields, currentChecks)) {
-
+    if (currentChecks.checkRanges(loadTicket(input[i]), fields) 
+        && possibleChecks.merge(currentChecks)) {
+          break;
     }
-
   }
 
-  return ERROR_STRING;
+  auto indices = possibleChecks.getDepartureIndices(fields);
+  size_t result = 1;
+  for (size_t i = 0; i < indices.size(); i++) {
+    result *= myTicket[indices[i]];
+  }
+
+  return to_string(result);
 }

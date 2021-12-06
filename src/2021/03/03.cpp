@@ -1,6 +1,7 @@
 // Puzzle is available at https://adventofcode.com/2021/day/03
 // Keywords:
 #include "../2021.hpp"
+#include "../../utils.hpp"
 #include <cmath>
 using namespace std;
 
@@ -28,16 +29,6 @@ const std::string y2021::solve_03a(std::vector<std::string> input) {
   }
 
   return to_string(gamma * epsilon);
-}
-
-uint binaryStringToDecimal(std::string binary) {
-  uint result = 0;
-  for (size_t i = 0; i < binary.size(); i++) {
-    if (binary[i] == '1') {
-      result += pow(2, binary.size() - 1 - i);    
-    }
-  }
-  return result;
 }
 
 uint determineRate(const std::vector<std::string> &input, bool preferOnes) {

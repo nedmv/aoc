@@ -1,6 +1,6 @@
 #include "../2021.hpp"
+#include "../../utils.hpp"
 using namespace std;
-static int stoiWrap(const string &str) { return stoi(str); }
 
 const std::string y2021::solve_01a(std::vector<std::string> input) {
   size_t size = input.size();

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Go to adventofcode.com and get puzzle data.
 
-Acquired data is saved it {year}/{date}/file folder structure.
+Acquired data is saved it src/{year}/{date}/file folder structure.
 
 Usage example:
 python3 download_puzzle.py 2020 1
@@ -35,12 +35,12 @@ def fd(day: int):
   return str(day).zfill(2)
 
 def init_year_header(year):
-  """Init {year}/{year}.hpp if it doesn't exist.
+  """Init src/{year}/{year}.hpp if it doesn't exist.
 
   Args:
       year: Puzzle year
   """
-  path = os.path.join(f"{year}",f"{year}.hpp");
+  path = os.path.join("src",f"{year}",f"{year}.hpp");
   if os.path.exists(path):
     print(f"{path} already initialized!")
   else:
@@ -70,7 +70,7 @@ def init_puzzle_source(year, day):
       year: Puzzle year
       day: Puzzle day
   """
-  path = os.path.join(f"{year}",f"{day}",f"{day}.cpp");
+  path = os.path.join("src",f"{year}",f"{day}",f"{day}.cpp");
   if os.path.exists(path):
     print(f"{path} already initialized!")
   else:
@@ -78,6 +78,7 @@ def init_puzzle_source(year, day):
       f.write(f'// Puzzle is available at https://adventofcode.com/{year}/day/{day}'+'\n')
       f.write(f'// Keywords:'+'\n')
       f.write(f'#include "../{year}.hpp"'+'\n')
+      f.write(f'#include "../../utils.hpp"'+'\n')
       f.write('using namespace std;\n\n')
       f.write(f'const std::string y{year}::solve_{day}a(std::vector<std::string> input)' + ' {\n\n\n')
       f.write('  return ERROR_STRING;\n')
@@ -89,7 +90,7 @@ def init_puzzle_source(year, day):
 
 def init_puzzle_dir(year: int, day: int):
   """Create puzzle dir if it not exists.
-  Puzzle dir is located at ./{year}/{day}. 
+  Puzzle dir is located at ./src/{year}/{day}. 
 
   Args:
       year (int): Puzzle year
@@ -98,18 +99,18 @@ def init_puzzle_dir(year: int, day: int):
   day = fd(day)
   year = str(year)
   try: 
-    os.mkdir(year)
+    os.mkdir(os.path.join("src",f"{year}"))
   except FileExistsError:
     print(f"Year {year} is already initialized.")
   try:
-    os.mkdir(os.path.join(f"{year}",f"{day}"))
+    os.mkdir(os.path.join("src",f"{year}",f"{day}"))
   except FileExistsError:
     print(f"Day {day} of year {year} is already initialized.")
   init_year_header(year)
   init_puzzle_source(year, day)
 
 def get_puzzle_text(year: int, day: int):
-  """Get puzzle text and save it as markdown in ./{year}/{day}/puzzle.md
+  """Get puzzle text and save it as markdown in ./src/{year}/{day}/puzzle.md
 
   Args:
       year (int): Puzzle year
@@ -124,16 +125,16 @@ def get_puzzle_text(year: int, day: int):
     article = soup.body.find('article')
     md = pypandoc.convert_text(article, 'md', format='html')
     day = fd(day)
-    with open(f"{year}/{day}/puzzle.md", 'w') as f:
+    with open(f"src/{year}/{day}/puzzle.md", 'w') as f:
       f.write(md)
       f.name
-      print(f"Puzzle text is available at {year}/{day}/puzzle.md")
+      print(f"Puzzle text is available at src/{year}/{day}/puzzle.md")
   else:
     print(f"Request failed with code {r.status_code}.")
 
 
 def get_puzzle_input(year: int, day: int):
-  """Download input of the puzzle and store it in ./{year}/{day}/input.
+  """Download input of the puzzle and store it in ./src/{year}/{day}/input.
   
   To get access function uses adventofcode.com session cookie. 
   It must be the only content of file located at TOKEN_PATH.
@@ -151,9 +152,9 @@ def get_puzzle_input(year: int, day: int):
   r = requests.get(url, headers = headers, cookies = cookies)
   day = fd(day)
   if (r.status_code == 200):
-    with open(f"{year}/{day}/input", 'w') as f:
+    with open(f"src/{year}/{day}/input", 'w') as f:
       f.write(r.text)
-      print(f"Puzzle input is available at {year}/{day}/input")
+      print(f"Puzzle input is available at src/{year}/{day}/input")
   else:
     print(f"Request failed with code {r.status_code}.")
 

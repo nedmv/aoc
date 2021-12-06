@@ -3,10 +3,8 @@
 #include <regex>
 
 #include "../2021.hpp"
+#include "../../utils.hpp"
 using namespace std;
-
-static inline int16_t ToInt(ssub_match m) { return stoi(m.str()); }
-
 struct Point {
   Point() : x(0), y(0) {}
   Point(int x, int y) : x(x), y(y) {}
