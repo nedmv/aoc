@@ -36,6 +36,9 @@ void year2021() {
   t.execute("06a", solve_06a);
   t.execute("06b", solve_06b);
 
+  t.execute("07a", solve_07a);
+  t.execute("07b", solve_07b);
+
 }
 
 void year2020() {
