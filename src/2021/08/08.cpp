@@ -13,7 +13,6 @@ int decodeDigit(std::string pattern) {
                                         "bcdf",    "abdfg", "abdefg", "acf",
                                         "abcdefg", "abcdfg"};
   std::sort(pattern.begin(), pattern.end());
-  //cout << pattern << std::endl;
   for (size_t i = 0; i < digits.size(); i++) {
     if (pattern == digits[i]) {
       return i;
@@ -22,16 +21,7 @@ int decodeDigit(std::string pattern) {
 }
 
 int decodeOutput(string &output, string &decodePattern) {
-  cout << "Output before decode: " << output << endl;
   map<char, char> decodeMap;
-  // decodeMap['a'] = decodePattern[0];
-  // decodeMap['b'] = decodePattern[1];
-  // decodeMap['c'] = decodePattern[2];
-  // decodeMap['d'] = decodePattern[3];
-  // decodeMap['e'] = decodePattern[4];
-  // decodeMap['f'] = decodePattern[5];
-  // decodeMap['g'] = decodePattern[6];
-  // decodeMap[' '] = ' ';
 
   decodeMap[decodePattern[0]] = 'a';
   decodeMap[decodePattern[1]] = 'b';
@@ -45,15 +35,6 @@ int decodeOutput(string &output, string &decodePattern) {
   for (int i = 0; i < output.size(); i++) {
     output[i] = decodeMap[output[i]];
   }
-
-  cout << "Decoded output: " << output << endl;
-  // replace(output.begin(), output.end(), 'a', decodePattern[0]);
-  // replace(output.begin(), output.end(), 'b', decodePattern[1]);
-  // replace(output.begin(), output.end(), 'c', decodePattern[2]);
-  // replace(output.begin(), output.end(), 'd', decodePattern[3]);
-  // replace(output.begin(), output.end(), 'e', decodePattern[4]);
-  // replace(output.begin(), output.end(), 'f', decodePattern[5]);
-  // replace(output.begin(), output.end(), 'g', decodePattern[6]);
 
   regex reg(R"(([a-g]+) ([a-g]+) ([a-g]+) ([a-g]+))");
   smatch digits;
@@ -169,10 +150,6 @@ int decode(const std::string &line) {
 
   string decodePattern = decodeInput(input);
   int number = decodeOutput(output, decodePattern);
-  cout << "Input: " << input << endl;
-  cout << "Output: " << output << endl;
-  cout << decodePattern << endl;
-  cout << number << endl;
   return number;
 }
 
@@ -186,7 +163,6 @@ const std::string y2021::solve_08a(std::vector<std::string> input) {
       size_t tokenLength = next - last;
       if ((tokenLength == 2) || (tokenLength == 3) || (tokenLength == 4) ||
           (tokenLength == 7)) {
-        cout << line.substr(last, tokenLength) << " ";
         count++;
       }
       last = next + 1;
@@ -195,10 +171,8 @@ const std::string y2021::solve_08a(std::vector<std::string> input) {
     size_t tokenLength = next - last;
     if ((tokenLength == 2) || (tokenLength == 3) || (tokenLength == 4) ||
         (tokenLength == 7)) {
-      cout << line.substr(last, tokenLength) << " ";
       count++;
     }
-    cout << "\n";
   }
   return to_string(count);
 }
