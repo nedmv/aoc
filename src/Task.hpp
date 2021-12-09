@@ -151,7 +151,7 @@ class Task {
    * @return const string relative path
    */
   inline const std::string puzzleDirPath(const std::string filename) {
-    return "src/" + _year + "/" + getId() + "/" + filename;
+    return _year + "/" + getId() + "/" + filename;
   }
 
   inline const std::string inputPath() { return puzzleDirPath(INPUT); }

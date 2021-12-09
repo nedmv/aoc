@@ -17,3 +17,8 @@ add_executable(aoc ${src_common}
                    ${src_2020} 
                    ${src_2021}
                    )
+
+execute_process(COMMAND ${CMAKE_COMMAND} -E create_symlink ${CMAKE_SOURCE_DIR}/src/2020
+                                                           ${CMAKE_BINARY_DIR}/2020)  
+execute_process(COMMAND ${CMAKE_COMMAND} -E create_symlink ${CMAKE_SOURCE_DIR}/src/2021
+                                                           ${CMAKE_BINARY_DIR}/2021)

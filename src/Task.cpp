@@ -38,6 +38,7 @@ const string Task::execute(string id, solution_t solver) {
 void Task::read_input() {
   string path = inputPath();
   ifstream ifs(path);
+  assert(ifs.is_open());
   int i = 0;
   string line;
 
