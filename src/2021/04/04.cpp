@@ -27,13 +27,13 @@ class BingoBoard {
         if (_board[i][j] == num) {
           _marked[i][j] = true;
           if((++_markedCounter >= 5) && checkForVictory()) {
-          //if (checkForVictory()) {
             score = countVictoryScore(num);
           }
-          return score;
+          break;
         }
       }
     }
+    return score;
   }
 
   void printBoard() {
@@ -127,14 +127,16 @@ vector<BingoBoard> initBoards(std::vector<std::string> input) {
 const std::string y2021::solve_04a(std::vector<std::string> input) {
   vector<int> pattern = parseLineOfNumbers(input[0]);
   vector<BingoBoard> boards = initBoards(input);
+  uint score = 0;
   for (size_t i = 0; i < pattern.size(); i++) {
     for (int j = 0; j < boards.size(); j++) {
-      uint score = boards[j].markAndCheckScore(pattern[i]);
+      score = boards[j].markAndCheckScore(pattern[i]);
       if (score != 0) {
-        return to_string(score);
+        break;
       };
     }
   }
+  return to_string(score);
 }
 
 const std::string y2021::solve_04b(std::vector<std::string> input) {

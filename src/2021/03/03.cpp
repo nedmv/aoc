@@ -35,6 +35,8 @@ uint determineRate(const std::vector<std::string> &input, bool preferOnes) {
   size_t len = input[0].size();
   vector<bool> eligible(input.size(), true);
 
+
+  int lastEligible = 0;
   for (size_t i = 0; i < len; i++) {
     uint ones = 0;
     uint total = 0;
@@ -68,9 +70,11 @@ uint determineRate(const std::vector<std::string> &input, bool preferOnes) {
     }
     //return last one standing
     if (eligibleCounter == 1) {
-      return binaryStringToDecimal(input[lastEligibleIndex]);
+      lastEligible = binaryStringToDecimal(input[lastEligibleIndex]);
+      break;
     }
   }
+  return lastEligible;
 }
 
 const std::string y2021::solve_03b(std::vector<std::string> input) {

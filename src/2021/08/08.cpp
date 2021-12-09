@@ -13,11 +13,13 @@ int decodeDigit(std::string pattern) {
                                         "bcdf",    "abdfg", "abdefg", "acf",
                                         "abcdefg", "abcdfg"};
   std::sort(pattern.begin(), pattern.end());
-  for (size_t i = 0; i < digits.size(); i++) {
-    if (pattern == digits[i]) {
-      return i;
+  int num;
+  for (num = 0; num < digits.size(); num++) {
+    if (pattern == digits[num]) {
+      break;
     }
   }
+  return num;
 }
 
 int decodeOutput(string &output, string &decodePattern) {
@@ -57,11 +59,13 @@ char findNotExistingElement(string input, string elements) {
 }
 
 char findFirstDifferentElement(string input, char element) {
-  for (int i = 0; i < input.size(); i++) {
+  int i;
+  for (i = 0; i < input.size(); i++) {
     if (input[i] != element) {
-      return input[i];
+      break;
     }
   }
+  return input[i];
 }
 
 std::string decodeInput(std::string &input) {
