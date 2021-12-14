@@ -130,7 +130,7 @@ bool Task::check() {
 
   if (filesystem::exists(right_path)) {
     ifs = ifstream(right_path);
-    getline(ifs, answer);
+    answer.assign(istreambuf_iterator<char>(ifs), istreambuf_iterator<char>());
     if (_result == answer) return true;
     return false;
   }

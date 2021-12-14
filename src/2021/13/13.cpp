@@ -1,5 +1,5 @@
 // Puzzle is available at https://adventofcode.com/2021/day/13
-// Keywords:
+// Keywords: regex, set
 #include <regex>
 #include <set>
 
@@ -75,10 +75,7 @@ const std::string y2021::solve_13a(std::vector<std::string> input) {
     regex_match(input[i], match, fold);
     folds.push_back(Fold(match[1].str()[0], ToInt(match[2])));
   }
-  cout << dots.size() << endl;
-  cout << "After fold:" << endl;
   auto newDots = folds[0].fold(dots);
-  cout << folds[0].direction << "=" << folds[0].value << endl;
 
   return to_string(newDots.size());
 }
@@ -116,14 +113,8 @@ const std::string y2021::solve_13b(std::vector<std::string> input) {
     regex_match(input[i], match, fold);
     folds.push_back(Fold(match[1].str()[0], ToInt(match[2])));
   }
-  cout << dots.size() << endl;
-  cout << "After fold:" << endl;
-
   for (int i = 0; i < folds.size(); i++) {
     dots = folds[i].fold(dots);
-  }
-  for (auto it = dots.begin(); it != dots.end(); it++) {
-    cout << "x = " << it->x << " y = " << it->y << endl;
   }
   return visualize(dots);
 }
