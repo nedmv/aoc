@@ -32,6 +32,6 @@ inline int stoiWrap(const std::string &str) { return std::stoi(str); }
  * @brief Convert representation of number as binary string to unsigned integer.
  * 
  * @param binary Input string (should contain only symbols '0' and '1').
- * @return Result (unsigned integer)
+ * @return Result (size_t)
  */
-uint binaryStringToDecimal(const std::string &binary);
+size_t binaryStringToDecimal(const std::string &binary);

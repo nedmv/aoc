@@ -15,8 +15,8 @@ std::vector<int> parseLineOfNumbers(const std::string &line) {
   return result;
 }
 
-uint binaryStringToDecimal(const std::string &binary) {
-  uint result = 0;
+size_t binaryStringToDecimal(const std::string &binary) {
+  size_t result = 0;
   for (size_t i = 0; i < binary.size(); i++) {
     if (binary[i] == '1') {
       result += std::pow(2, binary.size() - 1 - i);    
