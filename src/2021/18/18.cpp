@@ -105,7 +105,7 @@ static size_t countMagnitude(vector<RegularNumber> num) {
   return num[0].value;
 }
 
-const std::string y2021::solve_18a(std::vector<std::string> input) {
+const std::string y2021::solve_18a(const std::vector<std::string> &input) {
   auto result = parseSnailfishNumber(input[0]);
   for (int i = 1; i < input.size(); i++) {
     auto current = parseSnailfishNumber(input[i]);
@@ -114,7 +114,7 @@ const std::string y2021::solve_18a(std::vector<std::string> input) {
   return to_string(countMagnitude(result));
 }
 
-const std::string y2021::solve_18b(std::vector<std::string> input) {
+const std::string y2021::solve_18b(const std::vector<std::string> &input) {
   size_t size = input.size();
   size_t maxMagnitude = 0;
   vector<vector<RegularNumber>> nums;

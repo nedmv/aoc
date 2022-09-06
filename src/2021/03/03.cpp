@@ -6,7 +6,7 @@
 using namespace std;
 
 
-const std::string y2021::solve_03a(std::vector<std::string> input) {
+const std::string y2021::solve_03a(const std::vector<std::string> &input) {
   size_t len = input[0].size();
   vector<uint> counters(len, 0);
 
@@ -77,6 +77,6 @@ uint determineRate(const std::vector<std::string> &input, bool preferOnes) {
   return lastEligible;
 }
 
-const std::string y2021::solve_03b(std::vector<std::string> input) {
+const std::string y2021::solve_03b(const std::vector<std::string> &input) {
   return to_string(determineRate(input, true)*determineRate(input, false));
 }

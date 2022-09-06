@@ -105,10 +105,10 @@ size_t countTakenSeats(std::vector<std::string> input,
   return result;
 }
 
-const std::string y2020::solve_11a(std::vector<std::string> input) {
+const std::string y2020::solve_11a(const std::vector<std::string> &input) {
   return to_string(countTakenSeats(input, rulesA));
 }
 
-const std::string y2020::solve_11b(std::vector<std::string> input) {
+const std::string y2020::solve_11b(const std::vector<std::string> &input) {
   return to_string(countTakenSeats(input, rulesB));
 }

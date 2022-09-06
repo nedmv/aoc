@@ -74,16 +74,16 @@ bool runProgram(vector<Instruction> &instructions) {
   return false;
 }
 
-const std::string y2020::solve_08a(std::vector<std::string> input) {
+const std::string y2020::solve_08a(const std::vector<std::string> &input) {
   int acc = 0;
-  vector<Instruction> instructions = readProgram(input, acc);
+  vector<Instruction> instructions = readProgram(const_cast<std::vector<std::string>&>(input), acc);
   runProgram(instructions);
   return to_string(acc);
 }
 
-const std::string y2020::solve_08b(std::vector<std::string> input) {
+const std::string y2020::solve_08b(const std::vector<std::string> &input) {
   int acc = 0;
-  vector<Instruction> instructions = readProgram(input, acc);
+  vector<Instruction> instructions = readProgram(const_cast<std::vector<std::string>&>(input), acc);
   size_t size = instructions.size();
 
   for (size_t i = 0; i < size; i++) {

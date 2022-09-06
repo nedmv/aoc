@@ -167,13 +167,13 @@ static string convertHexToBin(string hexString) {
   return binString;
 }
 
-const std::string y2021::solve_16a(std::vector<std::string> input) {
+const std::string y2021::solve_16a(const std::vector<std::string> &input) {
   string package = convertHexToBin(input[0]);
   auto packet = Packet(package);
   return to_string(packet._versionSum);
 }
 
-const std::string y2021::solve_16b(std::vector<std::string> input) {
+const std::string y2021::solve_16b(const std::vector<std::string> &input) {
   string package = convertHexToBin(input[0]);
   auto packet = Packet(package);
   return to_string(packet._value);

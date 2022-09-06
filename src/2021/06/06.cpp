@@ -46,10 +46,10 @@ size_t countFish(const std::string &initialState, int lastDay) {
   return count;
 }
 
-const std::string y2021::solve_06a(std::vector<std::string> input) {
+const std::string y2021::solve_06a(const std::vector<std::string> &input) {
   return to_string(countFish(input[0], 80));
 }
 
-const std::string y2021::solve_06b(std::vector<std::string> input) {
+const std::string y2021::solve_06b(const std::vector<std::string> &input) {
   return to_string(countFish(input[0], 256));
 }

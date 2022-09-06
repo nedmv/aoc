@@ -1,7 +1,7 @@
 #include "../2020.hpp"
 using namespace std;
 
-const std::string y2020::solve_09a(std::vector<std::string> input) {
+const std::string y2020::solve_09a(const std::vector<std::string> &input) {
   vector<uint64_t> data;
   size_t size = input.size();
   for (size_t i = 0; i < size; i++) {
@@ -25,7 +25,7 @@ const std::string y2020::solve_09a(std::vector<std::string> input) {
   return ERROR_STRING;
 }
 
-const std::string y2020::solve_09b(std::vector<std::string> input) {
+const std::string y2020::solve_09b(const std::vector<std::string> &input) {
   uint64_t target = stoul(solve_09a(input));
   size_t size = input.size();
   vector<uint64_t> data;

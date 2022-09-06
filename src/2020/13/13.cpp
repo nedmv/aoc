@@ -1,7 +1,7 @@
 #include "../2020.hpp"
 using namespace std;
 
-const std::string y2020::solve_13a(std::vector<std::string> input) {
+const std::string y2020::solve_13a(const std::vector<std::string> &input) {
   size_t time = stoi(input[0]);
   string s = input[1];
   vector<size_t> buses;
@@ -36,7 +36,7 @@ struct Bus {
   size_t offset;
 };
 
-const std::string y2020::solve_13b(std::vector<std::string> input) {
+const std::string y2020::solve_13b(const std::vector<std::string> &input) {
   string s = input[1];
   vector<Bus> buses;  // first = bus number, second = timestamp offset
 

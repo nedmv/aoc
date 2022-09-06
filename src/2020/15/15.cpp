@@ -13,7 +13,6 @@ size_t solveUsingVector(vector<string> &input, size_t last_num) {
   size_t prev;
   size_t next;
   size_t pos = 1;
-  size_t value;
 
   for (size_t i = 0; i < input.size(); i++) {
     s = input[i];
@@ -29,7 +28,7 @@ size_t solveUsingVector(vector<string> &input, size_t last_num) {
     }
   }
   for (pos; pos < last_num; pos++) {
-    value = data[prev];
+    size_t value = data[prev];
     if (value) {
       next = pos - value;
     } else {
@@ -124,10 +123,10 @@ size_t solveUsingUnorderedMap(vector<string> &input, size_t last_num) {
   return next;
 }
 
-const std::string y2020::solve_15a(std::vector<std::string> input) {
-  return to_string(solveUsingVector(input, 2020));
+const std::string y2020::solve_15a(const std::vector<std::string> &input) {
+  return to_string(solveUsingVector(const_cast<std::vector<std::string>&>(input), 2020));
 }
 
-const std::string y2020::solve_15b(std::vector<std::string> input) {
-  return to_string(solveUsingVector(input, 30000000));
+const std::string y2020::solve_15b(const std::vector<std::string> &input) {
+  return to_string(solveUsingVector(const_cast<std::vector<std::string>&>(input), 30000000));
 }

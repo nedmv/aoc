@@ -84,12 +84,12 @@ class WShip : public Ship {
   }
 };
 
-const std::string y2020::solve_12a(std::vector<std::string> input) {
+const std::string y2020::solve_12a(const std::vector<std::string> &input) {
   Ship ship = Ship();
-  return to_string(ship.navigate(input));
+  return to_string(ship.navigate(const_cast<std::vector<std::string>&>(input)));
 }
 
-const std::string y2020::solve_12b(std::vector<std::string> input) {
+const std::string y2020::solve_12b(const std::vector<std::string> &input) {
   WShip ship = WShip();
-  return to_string(ship.navigate(input));
+  return to_string(ship.navigate(const_cast<std::vector<std::string>&>(input)));
 }

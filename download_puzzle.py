@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Go to adventofcode.com and get puzzle data.
 
-Acquired data is saved it src/{year}/{date}/file folder structure.
+Acquired data is saved in src/{year}/{date}/file folder structure.
 
 Usage example:
 python3 download_puzzle.py 2020 1
@@ -54,8 +54,8 @@ def init_year_header(year):
       f.write(f'namespace y{year} ' + '{\n\n')
 
       for i in range(1, 26):
-        f.write(f'const std::string solve_{fd(i)}a(std::vector<std::string> input);'+'\n')
-        f.write(f'const std::string solve_{fd(i)}b(std::vector<std::string> input);'+'\n\n')
+        f.write(f'const std::string solve_{fd(i)}a(const std::vector<std::string> &input);'+'\n')
+        f.write(f'const std::string solve_{fd(i)}b(const std::vector<std::string> &input);'+'\n\n')
       
       f.write('}\n')
     print(f'Successfully initialized {path}')
@@ -80,10 +80,10 @@ def init_puzzle_source(year, day):
       f.write(f'#include "../{year}.hpp"'+'\n')
       f.write(f'#include "../../utils.hpp"'+'\n')
       f.write('using namespace std;\n\n')
-      f.write(f'const std::string y{year}::solve_{day}a(std::vector<std::string> input)' + ' {\n\n\n')
+      f.write(f'const std::string y{year}::solve_{day}a(const std::vector<std::string> &input)' + ' {\n\n\n')
       f.write('  return ERROR_STRING;\n')
       f.write('}\n\n')
-      f.write(f'const std::string y{year}::solve_{day}b(std::vector<std::string> input)' + ' {\n\n\n')
+      f.write(f'const std::string y{year}::solve_{day}b(const std::vector<std::string> &input)' + ' {\n\n\n')
       f.write('  return ERROR_STRING;\n')
       f.write('}\n')
     print(f"Successfully initialized {path}")

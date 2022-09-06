@@ -13,79 +13,79 @@
 
 namespace y2020 {
 
-const std::string solve_01a(std::vector<std::string> input);
-const std::string solve_01b(std::vector<std::string> input);
+const std::string solve_01a(const std::vector<std::string> &input);
+const std::string solve_01b(const std::vector<std::string> &input);
 
-const std::string solve_02a(std::vector<std::string> input);
-const std::string solve_02b(std::vector<std::string> input);
+const std::string solve_02a(const std::vector<std::string> &input);
+const std::string solve_02b(const std::vector<std::string> &input);
 
-const std::string solve_03a(std::vector<std::string> input);
-const std::string solve_03b(std::vector<std::string> input);
+const std::string solve_03a(const std::vector<std::string> &input);
+const std::string solve_03b(const std::vector<std::string> &input);
 
-const std::string solve_04a(std::vector<std::string> input);
-const std::string solve_04b(std::vector<std::string> input);
+const std::string solve_04a(const std::vector<std::string> &input);
+const std::string solve_04b(const std::vector<std::string> &input);
 
-const std::string solve_05a(std::vector<std::string> input);
-const std::string solve_05b(std::vector<std::string> input);
+const std::string solve_05a(const std::vector<std::string> &input);
+const std::string solve_05b(const std::vector<std::string> &input);
 
-const std::string solve_06a(std::vector<std::string> input);
-const std::string solve_06b(std::vector<std::string> input);
+const std::string solve_06a(const std::vector<std::string> &input);
+const std::string solve_06b(const std::vector<std::string> &input);
 
-const std::string solve_07a(std::vector<std::string> input);
-const std::string solve_07b(std::vector<std::string> input);
+const std::string solve_07a(const std::vector<std::string> &input);
+const std::string solve_07b(const std::vector<std::string> &input);
 
-const std::string solve_08a(std::vector<std::string> input);
-const std::string solve_08b(std::vector<std::string> input);
+const std::string solve_08a(const std::vector<std::string> &input);
+const std::string solve_08b(const std::vector<std::string> &input);
 
-const std::string solve_09a(std::vector<std::string> input);
-const std::string solve_09b(std::vector<std::string> input);
+const std::string solve_09a(const std::vector<std::string> &input);
+const std::string solve_09b(const std::vector<std::string> &input);
 
-const std::string solve_10a(std::vector<std::string> input);
-const std::string solve_10b(std::vector<std::string> input);
+const std::string solve_10a(const std::vector<std::string> &input);
+const std::string solve_10b(const std::vector<std::string> &input);
 
-const std::string solve_11a(std::vector<std::string> input);
-const std::string solve_11b(std::vector<std::string> input);
+const std::string solve_11a(const std::vector<std::string> &input);
+const std::string solve_11b(const std::vector<std::string> &input);
 
-const std::string solve_12a(std::vector<std::string> input);
-const std::string solve_12b(std::vector<std::string> input);
+const std::string solve_12a(const std::vector<std::string> &input);
+const std::string solve_12b(const std::vector<std::string> &input);
 
-const std::string solve_13a(std::vector<std::string> input);
-const std::string solve_13b(std::vector<std::string> input);
+const std::string solve_13a(const std::vector<std::string> &input);
+const std::string solve_13b(const std::vector<std::string> &input);
 
-const std::string solve_14a(std::vector<std::string> input);
-const std::string solve_14b(std::vector<std::string> input);
+const std::string solve_14a(const std::vector<std::string> &input);
+const std::string solve_14b(const std::vector<std::string> &input);
 
-const std::string solve_15a(std::vector<std::string> input);
-const std::string solve_15b(std::vector<std::string> input);
+const std::string solve_15a(const std::vector<std::string> &input);
+const std::string solve_15b(const std::vector<std::string> &input);
 
-const std::string solve_16a(std::vector<std::string> input);
-const std::string solve_16b(std::vector<std::string> input);
+const std::string solve_16a(const std::vector<std::string> &input);
+const std::string solve_16b(const std::vector<std::string> &input);
 
-const std::string solve_17a(std::vector<std::string> input);
-const std::string solve_17b(std::vector<std::string> input);
+const std::string solve_17a(const std::vector<std::string> &input);
+const std::string solve_17b(const std::vector<std::string> &input);
 
-const std::string solve_18a(std::vector<std::string> input);
-const std::string solve_18b(std::vector<std::string> input);
+const std::string solve_18a(const std::vector<std::string> &input);
+const std::string solve_18b(const std::vector<std::string> &input);
 
-const std::string solve_19a(std::vector<std::string> input);
-const std::string solve_19b(std::vector<std::string> input);
+const std::string solve_19a(const std::vector<std::string> &input);
+const std::string solve_19b(const std::vector<std::string> &input);
 
-const std::string solve_20a(std::vector<std::string> input);
-const std::string solve_20b(std::vector<std::string> input);
+const std::string solve_20a(const std::vector<std::string> &input);
+const std::string solve_20b(const std::vector<std::string> &input);
 
-const std::string solve_21a(std::vector<std::string> input);
-const std::string solve_21b(std::vector<std::string> input);
+const std::string solve_21a(const std::vector<std::string> &input);
+const std::string solve_21b(const std::vector<std::string> &input);
 
-const std::string solve_22a(std::vector<std::string> input);
-const std::string solve_22b(std::vector<std::string> input);
+const std::string solve_22a(const std::vector<std::string> &input);
+const std::string solve_22b(const std::vector<std::string> &input);
 
-const std::string solve_23a(std::vector<std::string> input);
-const std::string solve_23b(std::vector<std::string> input);
+const std::string solve_23a(const std::vector<std::string> &input);
+const std::string solve_23b(const std::vector<std::string> &input);
 
-const std::string solve_24a(std::vector<std::string> input);
-const std::string solve_24b(std::vector<std::string> input);
+const std::string solve_24a(const std::vector<std::string> &input);
+const std::string solve_24b(const std::vector<std::string> &input);
 
-const std::string solve_25a(std::vector<std::string> input);
-const std::string solve_25b(std::vector<std::string> input);
+const std::string solve_25a(const std::vector<std::string> &input);
+const std::string solve_25b(const std::vector<std::string> &input);
 
 }  // namespace y2020

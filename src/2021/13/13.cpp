@@ -58,7 +58,7 @@ class Fold {
   }
 };
 
-const std::string y2021::solve_13a(std::vector<std::string> input) {
+const std::string y2021::solve_13a(const std::vector<std::string> &input) {
   set<Point> dots;
   regex dot(R"(([0-9]+),([0-9]+))");
   smatch match;
@@ -96,7 +96,7 @@ static const std::string visualize(set<Point> &dots) {
   return output;
 }
 
-const std::string y2021::solve_13b(std::vector<std::string> input) {
+const std::string y2021::solve_13b(const std::vector<std::string> &input) {
   set<Point> dots;
   regex dot(R"(([0-9]+),([0-9]+))");
   smatch match;

@@ -114,7 +114,7 @@ class BingoBoard {
   }
 };
 
-vector<BingoBoard> initBoards(std::vector<std::string> input) {
+vector<BingoBoard> initBoards(const std::vector<std::string> &input) {
   vector<BingoBoard> boards;
   size_t startPos = 2;  // first board start
   while (startPos <= input.size()) {
@@ -124,7 +124,7 @@ vector<BingoBoard> initBoards(std::vector<std::string> input) {
   return boards;
 }
 
-const std::string y2021::solve_04a(std::vector<std::string> input) {
+const std::string y2021::solve_04a(const std::vector<std::string> &input) {
   vector<int> pattern = parseLineOfNumbers(input[0]);
   vector<BingoBoard> boards = initBoards(input);
   uint score = 0;
@@ -139,7 +139,7 @@ const std::string y2021::solve_04a(std::vector<std::string> input) {
   return to_string(score);
 }
 
-const std::string y2021::solve_04b(std::vector<std::string> input) {
+const std::string y2021::solve_04b(const std::vector<std::string> &input) {
   vector<int> pattern = parseLineOfNumbers(input[0]);
   vector<BingoBoard> boards = initBoards(input);
 

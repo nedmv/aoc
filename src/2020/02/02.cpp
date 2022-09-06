@@ -3,7 +3,7 @@
 #include "../2020.hpp"
 using namespace std;
 
-const std::string y2020::solve_02a(std::vector<std::string> input) {
+const std::string y2020::solve_02a(const std::vector<std::string> &input) {
   // groups: 1 - min, 2 - max, 3 - char, 4 - string
   regex reg(R"(^([0-9]+)-([0-9]+)\s([a-z]?):\s([a-z]+)$)");
   smatch groups;
@@ -19,7 +19,7 @@ const std::string y2020::solve_02a(std::vector<std::string> input) {
   return to_string(correct_passwords);
 }
 
-const std::string y2020::solve_02b(std::vector<std::string> input) {
+const std::string y2020::solve_02b(const std::vector<std::string> &input) {
   // groups: 1 - pos 1, 2 - pos 2, 3 - char, 4 - string
   regex reg(R"(^([0-9]+)-([0-9]+)\s([a-z]?):\s([a-z]+)$)");
   smatch groups;

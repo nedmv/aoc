@@ -79,7 +79,7 @@ static const Rect parseRect(const std::string &input) {
 }
 
 
-const std::string y2021::solve_17a(std::vector<std::string> input) {
+const std::string y2021::solve_17a(const std::vector<std::string> &input) {
   auto bounds = parseRect(input[0]);
   int yBest = 0;
 
@@ -106,7 +106,7 @@ const std::string y2021::solve_17a(std::vector<std::string> input) {
   return to_string(yBest);
 }
 
-const std::string y2021::solve_17b(std::vector<std::string> input) {
+const std::string y2021::solve_17b(const std::vector<std::string> &input) {
   auto bounds = parseRect(input[0]);
   size_t count = 0;
 

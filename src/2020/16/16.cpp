@@ -135,12 +135,12 @@ bool inRanges(uint32_t x, vector<Field> &fields) {
   return false;
 }
 
-const std::string y2020::solve_16a(std::vector<std::string> input) {
+const std::string y2020::solve_16a(const std::vector<std::string> &input) {
   vector<Field> fields;
   size_t i = 0;
 
   while (!input[i].empty()) {
-    fields.push_back(Field(input[i]));
+    fields.push_back(Field(const_cast<std::string &>(input[i])));
     i++;
   }
 
@@ -218,18 +218,18 @@ vector<uint32_t> loadTicket(string &s) {
   return result;
 }
 
-const std::string y2020::solve_16b(std::vector<std::string> input) {
+const std::string y2020::solve_16b(const std::vector<std::string> &input) {
   vector<Field> fields;
   size_t i = 0;
 
   while (!input[i].empty()) {
-    fields.push_back(Field(input[i]));
+    fields.push_back(Field(const_cast<std::string &>(input[i])));
     i++;
   }
 
   i += 2;
 
-  auto myTicket = loadTicket(input[i]);
+  auto myTicket = loadTicket(const_cast<std::string &>(input[i]));
   size_t size = myTicket.size();
 
   i += 3;
@@ -238,7 +238,7 @@ const std::string y2020::solve_16b(std::vector<std::string> input) {
   Checklist currentChecks(size);
 
   for (i; i < input.size(); i++) {
-    if (currentChecks.checkRanges(loadTicket(input[i]), fields) 
+    if (currentChecks.checkRanges(loadTicket(const_cast<std::string &>(input[i])), fields) 
         && possibleChecks.merge(currentChecks)) {
           break;
     }

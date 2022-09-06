@@ -15,7 +15,7 @@ using namespace std;
 
 void year2021() {
   using namespace y2021;
-  Task t = Task();
+  Task t;
   t.setYear(2021);
 
   t.execute("01a", solve_01a);
@@ -72,7 +72,6 @@ void year2021() {
   t.execute("18a", solve_18a);
   t.execute("18b", solve_18b);
 
-  // not solved yet
   // t.execute("19a", solve_19a);
   // t.execute("19b", solve_19b);
 
@@ -81,7 +80,14 @@ void year2021() {
 
   t.execute("21a", solve_21a);
   t.execute("21b", solve_21b);
+
+  // t.execute("22a", solve_22a);
+  // t.execute("22b", solve_22b); 
+
+  // t.execute("23a", solve_23a);
+  // t.execute("23b", solve_23b);
 }
+
 
 void year2020() {
   using namespace y2020;
@@ -133,11 +139,11 @@ void year2020() {
   t.execute("15a", solve_15a);
   t.execute("15b", solve_15b);
 
-  // t.execute("16a", solve_16a);
-  // t.execute("16b", solve_16b);
+  t.execute("16a", solve_16a);
+  t.execute("16b", solve_16b);
 }
 
 int main() {
-  // year2020();
+  year2020();
   year2021();
 }

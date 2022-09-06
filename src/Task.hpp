@@ -7,7 +7,7 @@
  * @brief Pointer to eligible Task::solve() method.
  *
  */
-typedef const std::string (*solution_t)(std::vector<std::string>);
+typedef const std::string (*solution_t)(const std::vector<std::string> &);
 
 /**
  * @brief Filename of puzzle input.
@@ -54,7 +54,7 @@ class Task {
    * @param solver Pointer to used solve() function.
    * Function must take vector of strings as argument and return single string.
    */
-  Task(std::string id, solution_t solver);
+  Task(const std::string &id, solution_t solver);
 
   /**
    * @brief Destroy the Task object
@@ -73,7 +73,7 @@ class Task {
    * @param solver Pointer to chosen solve() method.
    * @return const std::string Execution result.
    */
-  const std::string execute(std::string id, solution_t solver);
+  const std::string execute(const std::string &id, solution_t solver);
 
   /**
    * @brief Problem solution. Receives array of strings, returns result.
@@ -120,7 +120,7 @@ class Task {
    * @param solver Chosen solver
    * @param n Times to run
    */
-  void multirun(std::string id, solution_t solver, size_t n);
+  void multirun(const std::string &id, solution_t solver, size_t n);
 
   /**
    * @brief Get task id.
@@ -150,7 +150,7 @@ class Task {
    * @param filename name of file
    * @return const string relative path
    */
-  inline const std::string puzzleDirPath(const std::string filename) {
+  inline const std::string puzzleDirPath(const std::string &filename) {
     return _year + "/" + getId() + "/" + filename;
   }
 
@@ -172,7 +172,7 @@ class Task {
    *
    * @param id std::string (length must be 3).
    */
-  inline void _setId(const std::string id);
+  inline void _setId(const std::string &id);
 
   std::string _year;
 

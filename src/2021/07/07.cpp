@@ -26,12 +26,12 @@ uint countMinFuelAmount(const std::string &data,
 }
 
 //use y = x as costFunction
-const std::string y2021::solve_07a(std::vector<std::string> input) {
+const std::string y2021::solve_07a(const std::vector<std::string> &input) {
   return to_string(countMinFuelAmount(input[0], [](int x) { return x; }));
 }
 
 //use sum of arithmetic progression as costFunction
-const std::string y2021::solve_07b(std::vector<std::string> input) {
+const std::string y2021::solve_07b(const std::vector<std::string> &input) {
   return to_string(
       countMinFuelAmount(input[0], [](int x) { return (x + 1) * x / 2; }));
 }

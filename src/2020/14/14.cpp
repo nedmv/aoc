@@ -109,12 +109,12 @@ class DecoderB : public IDecoder {
   }
 };
 
-const std::string y2020::solve_14a(std::vector<std::string> input) {
+const std::string y2020::solve_14a(const std::vector<std::string> &input) {
   DecoderA prog(input);
   return to_string(prog.count());
 }
 
-const std::string y2020::solve_14b(std::vector<std::string> input) {
+const std::string y2020::solve_14b(const std::vector<std::string> &input) {
   DecoderB prog(input);
   return to_string(prog.count());
 }

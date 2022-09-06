@@ -10,12 +10,12 @@
 using namespace std;
 using namespace std::chrono;
 
-Task::Task(string id, solution_t solver) {
+Task::Task(const string &id, solution_t solver) {
   _setId(id);
   this->solve = solver;
 }
 
-const string Task::execute(string id, solution_t solver) {
+const string Task::execute(const string &id, solution_t solver) {
   _setId(id);
   this->solve = solver;
   _input.clear();
@@ -39,7 +39,6 @@ void Task::read_input() {
   string path = inputPath();
   ifstream ifs(path);
   assert(ifs.is_open());
-  int i = 0;
   string line;
 
   while (getline(ifs, line)) {
@@ -76,7 +75,7 @@ time_t Task::benchmark() {
   return time;
 }
 
-void Task::multirun(std::string id, solution_t solver, size_t n) {
+void Task::multirun(const std::string &id, solution_t solver, size_t n) {
   _setId(id);
   this->solve = solver;
   _input.clear();
@@ -109,7 +108,7 @@ const char Task::getPartId() {
   return _id.at(2);
 }
 
-inline void Task::_setId(const string id) {
+inline void Task::_setId(const string &id) {
   assert(id.length() == 3);
   assert(id.at(2) == 'a' || id.at(2) == 'b');
   assert(id.at(0) >= '0' && id.at(0) <= '2');

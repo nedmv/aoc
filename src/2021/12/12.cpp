@@ -98,10 +98,10 @@ static const string solve(vector<string> &input, bool hasBonus) {
   return to_string(count);
 }
 
-const std::string y2021::solve_12a(std::vector<std::string> input) {
-  return solve(input, false);
+const std::string y2021::solve_12a(const std::vector<std::string> &input) {
+  return solve(const_cast<std::vector<std::string>&>(input), false);
 }
 
-const std::string y2021::solve_12b(std::vector<std::string> input) {
-  return solve(input, true);
+const std::string y2021::solve_12b(const std::vector<std::string> &input) {
+  return solve(const_cast<std::vector<std::string>&>(input), true);
 }

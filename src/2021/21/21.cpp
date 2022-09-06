@@ -4,7 +4,7 @@
 #include "../2021.hpp"
 using namespace std;
 
-const std::string y2021::solve_21a(std::vector<std::string> input) {
+const std::string y2021::solve_21a(const std::vector<std::string> &input) {
   size_t die = 1;
   size_t score1 = 0;
   size_t score2 = 0;
@@ -50,7 +50,7 @@ const std::string y2021::solve_21a(std::vector<std::string> input) {
   return to_string(rolls * losingScore);
 }
 
-const std::string y2021::solve_21b(std::vector<std::string> input) {
+const std::string y2021::solve_21b(const std::vector<std::string> &input) {
   vector<vector<vector<vector<size_t>>>> state(
       10, vector<vector<vector<size_t>>>(
               10, vector<vector<size_t>>(21, vector<size_t>(21, 0))));

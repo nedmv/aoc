@@ -116,12 +116,12 @@ static vector<vector<size_t>> parseInput(const std::vector<std::string> &input) 
   return maze;
 }
 
-const std::string y2021::solve_15a(std::vector<std::string> input) {
+const std::string y2021::solve_15a(const std::vector<std::string> &input) {
   auto maze = parseInput(input);
   return to_string(Astar(maze, Point(0, 0), Point(maze[0].size() - 1, maze.size() - 1)));
 }
 
-const std::string y2021::solve_15b(std::vector<std::string> input) {
+const std::string y2021::solve_15b(const std::vector<std::string> &input) {
   auto maze = parseInput(input);
   auto newMap = generateFullMap(maze);
   return to_string(Astar(newMap, Point(0, 0), Point(newMap[0].size() - 1, newMap.size() - 1)));

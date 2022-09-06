@@ -4,7 +4,7 @@
 #include <regex>
 using namespace std;
 
-const std::string y2021::solve_02a(std::vector<std::string> input) {
+const std::string y2021::solve_02a(const std::vector<std::string> &input) {
   regex reg(R"(([a-z]+) ([0-9]+))");
   smatch match;
   int position = 0;
@@ -27,7 +27,7 @@ const std::string y2021::solve_02a(std::vector<std::string> input) {
   return to_string(position*depth);
 }
 
-const std::string y2021::solve_02b(std::vector<std::string> input) {
+const std::string y2021::solve_02b(const std::vector<std::string> &input) {
   regex reg(R"(([a-z]+) ([0-9]+))");
   smatch match;
   int position = 0;

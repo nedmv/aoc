@@ -2,7 +2,7 @@
 #include "../../utils.hpp"
 using namespace std;
 
-const std::string y2021::solve_01a(std::vector<std::string> input) {
+const std::string y2021::solve_01a(const std::vector<std::string> &input) {
   size_t size = input.size();
   vector<int> data(size);
   transform(input.begin(), input.end(), data.begin(), stoiWrap);
@@ -18,7 +18,7 @@ const std::string y2021::solve_01a(std::vector<std::string> input) {
   return to_string(count);
 }
 
-const std::string y2021::solve_01b(std::vector<std::string> input) {
+const std::string y2021::solve_01b(const std::vector<std::string> &input) {
   size_t size = input.size();
   vector<int> data(size);
   transform(input.begin(), input.end(), data.begin(), stoiWrap);
