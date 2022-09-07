@@ -13,7 +13,7 @@ This repository intentionally does not contain puzzle inputs (they vary for each
 3. Download puzzle text and input for chosen day by running `python3 download_puzzle.py YEAR DAY`.
 4. Choose puzzles for execution by modifying `main.cpp`.
 5. Build and run project.
-6. When asked, enter acquired puzzle answer on adventofcode.com.
+6. When asked, enter acquired puzzle answer on https://adventofcode.com.
 7. Provide app with feedback. Answer would either be acknowledged as right answer or saved in the pool of incorrect ones.
 
 
