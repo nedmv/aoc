@@ -45,7 +45,7 @@ uint countBasinSize(const vector<vector<int>> &heightmap,
   return size;
 }
 
-const std::string y2021::solve_09a(const std::vector<std::string> &input) {
+std::string y2021::solve_09a(const std::vector<std::string> &input) {
   vector<vector<int>> heightmap;
   for (int i = 0; i < input.size(); i++) {
     vector<int> tmp;
@@ -66,7 +66,7 @@ const std::string y2021::solve_09a(const std::vector<std::string> &input) {
   return to_string(count);
 }
 
-const std::string y2021::solve_09b(const std::vector<std::string> &input) {
+std::string y2021::solve_09b(const std::vector<std::string> &input) {
   vector<vector<int>> heightmap;
   for (int i = 0; i < input.size(); i++) {
     vector<int> tmp;

@@ -68,7 +68,7 @@ ostream &operator<<(ostream &os, Bag &bag) {
 }
 #endif
 
-const std::string y2020::solve_07a(const std::vector<std::string> &input) {
+std::string y2020::solve_07a(const std::vector<std::string> &input) {
   vector<Bag> bags;
   Bag bag;
   for (size_t i = 0; i < input.size(); i++) {
@@ -94,7 +94,7 @@ static size_t countInsides(const string &name, vector<Bag> &bags) {
   return counter;
 }
 
-const std::string y2020::solve_07b(const std::vector<std::string> &input) {
+std::string y2020::solve_07b(const std::vector<std::string> &input) {
   vector<Bag> bags;
   Bag bag;
   for (size_t i = 0; i < input.size(); i++) {

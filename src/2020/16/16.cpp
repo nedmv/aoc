@@ -131,7 +131,7 @@ bool inRanges(uint32_t x, vector<Field> &fields) {
   return false;
 }
 
-const std::string y2020::solve_16a(const std::vector<std::string> &input) {
+std::string y2020::solve_16a(const std::vector<std::string> &input) {
   vector<Field> fields;
   size_t i = 0;
 
@@ -212,7 +212,7 @@ vector<uint32_t> loadTicket(string &s) {
   return result;
 }
 
-const std::string y2020::solve_16b(const std::vector<std::string> &input) {
+std::string y2020::solve_16b(const std::vector<std::string> &input) {
   vector<Field> fields;
   size_t i = 0;
 

@@ -3,7 +3,7 @@
 #include "../2020.hpp"
 using namespace std;
 
-const std::string y2020::solve_06a(const std::vector<std::string> &input) {
+std::string y2020::solve_06a(const std::vector<std::string> &input) {
   bitset<26> b;
   size_t result = 0;
   uint8_t id;
@@ -23,7 +23,7 @@ const std::string y2020::solve_06a(const std::vector<std::string> &input) {
   return to_string(result);
 }
 
-const std::string y2020::solve_06b(const std::vector<std::string> &input) {
+std::string y2020::solve_06b(const std::vector<std::string> &input) {
   bitset<26> common_answers, current_answers;
   common_answers.set();
   size_t result = 0;

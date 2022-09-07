@@ -102,10 +102,10 @@ static std::string solve(std::vector<std::string> &input, int iterations) {
   return to_string(countLitPixels(image));
 }
 
-const std::string y2021::solve_20a(const std::vector<std::string> &input) {
+std::string y2021::solve_20a(const std::vector<std::string> &input) {
   return solve(const_cast<std::vector<std::string>&>(input), 2);
 }
 
-const std::string y2021::solve_20b(const std::vector<std::string> &input) {
+std::string y2021::solve_20b(const std::vector<std::string> &input) {
   return solve(const_cast<std::vector<std::string>&>(input), 50);
 }

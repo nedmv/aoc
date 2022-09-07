@@ -124,7 +124,7 @@ vector<BingoBoard> initBoards(const std::vector<std::string> &input) {
   return boards;
 }
 
-const std::string y2021::solve_04a(const std::vector<std::string> &input) {
+std::string y2021::solve_04a(const std::vector<std::string> &input) {
   vector<int> pattern = parseLineOfNumbers(input[0]);
   vector<BingoBoard> boards = initBoards(input);
   uint score = 0;
@@ -139,7 +139,7 @@ const std::string y2021::solve_04a(const std::vector<std::string> &input) {
   return to_string(score);
 }
 
-const std::string y2021::solve_04b(const std::vector<std::string> &input) {
+std::string y2021::solve_04b(const std::vector<std::string> &input) {
   vector<int> pattern = parseLineOfNumbers(input[0]);
   vector<BingoBoard> boards = initBoards(input);
 

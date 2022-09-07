@@ -7,7 +7,7 @@
  * @brief Pointer to eligible Task::solve() method.
  *
  */
-typedef const std::string (*solution_t)(const std::vector<std::string> &);
+typedef std::string (*solution_t)(const std::vector<std::string> &);
 
 /**
  * @brief Filename of puzzle input.
@@ -71,9 +71,9 @@ class Task {
    * Part id must be 'a' for first part and 'b' for second.
    * Examples: "05b", "23a".
    * @param solver Pointer to chosen solve() method.
-   * @return const std::string Execution result.
+   * @return std::string Execution result.
    */
-  const std::string execute(const std::string &id, solution_t solver);
+  std::string execute(const std::string &id, solution_t solver);
 
   /**
    * @brief Problem solution. Receives array of strings, returns result.
@@ -125,17 +125,17 @@ class Task {
   /**
    * @brief Get task id.
    *
-   * @return const string Task day
+   * @return string Task day
    */
-  const std::string getId();
+  std::string getId();
 
   /**
    * @brief Get task part id.
    *
-   * @return const char
+   * @return char
    * 'a' for part one, 'b' for part two.
    */
-  const char getPartId();
+  char getPartId();
 
   /**
    * @brief Set puzzle year. It is used to determine relative path to puzzle files.
@@ -148,19 +148,19 @@ class Task {
    * @brief Prepend filename with relative path to puzzle dir.
    *
    * @param filename name of file
-   * @return const string relative path
+   * @return string relative path
    */
-  inline const std::string puzzleDirPath(const std::string &filename) {
+  inline std::string puzzleDirPath(const std::string &filename) {
     return _year + "/" + getId() + "/" + filename;
   }
 
-  inline const std::string inputPath() { return puzzleDirPath(INPUT); }
+  inline std::string inputPath() { return puzzleDirPath(INPUT); }
 
-  inline const std::string rightAnswerPath() {
+  inline std::string rightAnswerPath() {
     return puzzleDirPath(_id + RIGHT_ANSWER_EXT);
   }
 
-  inline const std::string wrongAnswerPath() {
+  inline std::string wrongAnswerPath() {
     return puzzleDirPath(_id + WRONG_ANSWER_EXT);
   }
 

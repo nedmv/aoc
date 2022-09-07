@@ -59,10 +59,10 @@ const std::string solve(std::vector<std::string> input, bool countDiagonals) {
   return to_string(count);
 }
 
-const std::string y2021::solve_05a(const std::vector<std::string> &input) {
+std::string y2021::solve_05a(const std::vector<std::string> &input) {
   return solve(input, false);
 }
 
-const std::string y2021::solve_05b(const std::vector<std::string> &input) {
+std::string y2021::solve_05b(const std::vector<std::string> &input) {
   return solve(input, true);
 }

@@ -15,7 +15,7 @@ Task::Task(const string &id, solution_t solver) {
   this->solve = solver;
 }
 
-const string Task::execute(const string &id, solution_t solver) {
+string Task::execute(const string &id, solution_t solver) {
   _setId(id);
   this->solve = solver;
   _input.clear();
@@ -98,12 +98,12 @@ void Task::multirun(const std::string &id, solution_t solver, size_t n) {
        << ", max = " << max << "." << endl;
 }
 
-const string Task::getId() {
+string Task::getId() {
   assert(_id.length() == 3);
   return _id.substr(0, 2);
 }
 
-const char Task::getPartId() {
+char Task::getPartId() {
   assert(_id.length() == 3);
   return _id.at(2);
 }

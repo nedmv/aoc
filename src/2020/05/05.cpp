@@ -13,7 +13,7 @@ static ulong count_seat_id(string input) {
   return bitset<8>(row).to_ulong() * 8 + bitset<8>(col).to_ulong();
 }
 
-const std::string y2020::solve_05a(const std::vector<std::string> &input) {
+std::string y2020::solve_05a(const std::vector<std::string> &input) {
   ulong max_id = 0;
   ulong current_id = 0;
   for (size_t i = 0; i < input.size(); i++) {
@@ -23,7 +23,7 @@ const std::string y2020::solve_05a(const std::vector<std::string> &input) {
   return to_string(max_id);
 }
 
-const std::string y2020::solve_05b(const std::vector<std::string> &input) {
+std::string y2020::solve_05b(const std::vector<std::string> &input) {
   ulong current_id = 0;
   // could use 05a output, but independence is more valuable
   const uint16_t max_id = 128 * 8 - 1;

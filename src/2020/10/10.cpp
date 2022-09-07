@@ -11,7 +11,7 @@ static vector<uint32_t> sort_adapters(const vector<string> &input) {
   return data;
 }
 
-const std::string y2020::solve_10a(const std::vector<std::string> &input) {
+std::string y2020::solve_10a(const std::vector<std::string> &input) {
   vector<uint32_t> data = sort_adapters(const_cast<std::vector<std::string>&>(input));
 
   size_t ones = 0;
@@ -60,7 +60,7 @@ static size_t arrangements(vector<uint32_t> &num) {
   return value[num[size - 1]];
 }
 
-const std::string y2020::solve_10b(const std::vector<std::string> &input) {
+std::string y2020::solve_10b(const std::vector<std::string> &input) {
   vector<uint32_t> data = sort_adapters(const_cast<std::vector<std::string>&>(input));
   return to_string(arrangements(data));
 }

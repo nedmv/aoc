@@ -25,7 +25,7 @@ struct InsertionRule {
 };
 
 // naive approach, see 14b for more effective solution
-const std::string y2021::solve_14a(const std::vector<std::string> &input) {
+std::string y2021::solve_14a(const std::vector<std::string> &input) {
   string polymer;
   for (int j = 0; j < input[0].size(); j++) {
     polymer.push_back(input[0][j]);
@@ -69,7 +69,7 @@ const std::string y2021::solve_14a(const std::vector<std::string> &input) {
   return to_string(result);
 }
 
-const std::string y2021::solve_14b(const std::vector<std::string> &input) {
+std::string y2021::solve_14b(const std::vector<std::string> &input) {
   string polymer;
   for (int j = 0; j < input[0].size(); j++) {
     polymer.push_back(input[0][j]);

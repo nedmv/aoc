@@ -4,7 +4,7 @@
 #include "../../utils.hpp"
 using namespace std;
 
-const std::string y2020::solve_04a(const std::vector<std::string> &input) {
+std::string y2020::solve_04a(const std::vector<std::string> &input) {
   string data = string();
   size_t fields;
   size_t valid_passports = 0;
@@ -27,7 +27,7 @@ const std::string y2020::solve_04a(const std::vector<std::string> &input) {
 }
 
 // input should end with empty string for correct processing
-const std::string y2020::solve_04b(const std::vector<std::string> &input) {
+std::string y2020::solve_04b(const std::vector<std::string> &input) {
   string data = string();
   size_t valid_passports = 0;
   smatch match;

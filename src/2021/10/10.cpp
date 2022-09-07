@@ -66,7 +66,7 @@ static size_t countCompletionScore(vector<char> &openedChunks) {
   return score;
 }
 
-const std::string y2021::solve_10a(const std::vector<std::string> &input) {
+std::string y2021::solve_10a(const std::vector<std::string> &input) {
   uint score = 0;
   for (size_t i = 0; i < input.size(); i++) {
     vector<char> openedChunks;
@@ -88,7 +88,7 @@ const std::string y2021::solve_10a(const std::vector<std::string> &input) {
   return to_string(score);
 }
 
-const std::string y2021::solve_10b(const std::vector<std::string> &input) {
+std::string y2021::solve_10b(const std::vector<std::string> &input) {
   vector<size_t> scores;
   for (size_t i = 0; i < input.size(); i++) {
     vector<char> openedChunks;

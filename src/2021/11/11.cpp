@@ -66,7 +66,7 @@ static size_t countFlashesAndSetEnergyToZero(vector<vector<int>> &energy) {
   return flashes;
 }
 
-const std::string y2021::solve_11a(const std::vector<std::string> &input) {
+std::string y2021::solve_11a(const std::vector<std::string> &input) {
   auto energy = parseEnergy(input);
   size_t flashes = 0;
   for (size_t turn = 0; turn < 100; turn++) {
@@ -77,7 +77,7 @@ const std::string y2021::solve_11a(const std::vector<std::string> &input) {
   return to_string(flashes);
 }
 
-const std::string y2021::solve_11b(const std::vector<std::string> &input) {
+std::string y2021::solve_11b(const std::vector<std::string> &input) {
   auto energy = parseEnergy(input);
   int turn = 0;
   while (true) {

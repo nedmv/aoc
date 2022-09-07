@@ -157,7 +157,7 @@ int decode(const std::string &line) {
   return number;
 }
 
-const std::string y2021::solve_08a(const std::vector<std::string> &input) {
+std::string y2021::solve_08a(const std::vector<std::string> &input) {
   size_t count = 0;
   for (int i = 0; i < input.size(); i++) {
     string line = input[i].substr(input[i].find("|"), input[i].size() - 1);
@@ -181,7 +181,7 @@ const std::string y2021::solve_08a(const std::vector<std::string> &input) {
   return to_string(count);
 }
 
-const std::string y2021::solve_08b(const std::vector<std::string> &input) {
+std::string y2021::solve_08b(const std::vector<std::string> &input) {
   int sum = 0;
   for (int i = 0; i < input.size(); i++) {
     sum += decode(input[i]);

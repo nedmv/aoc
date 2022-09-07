@@ -123,10 +123,10 @@ size_t solveUsingUnorderedMap(const vector<string> &input, size_t last_num) {
   return next;
 }
 
-const std::string y2020::solve_15a(const std::vector<std::string> &input) {
+std::string y2020::solve_15a(const std::vector<std::string> &input) {
   return to_string(solveUsingVector(const_cast<std::vector<std::string>&>(input), 2020));
 }
 
-const std::string y2020::solve_15b(const std::vector<std::string> &input) {
+std::string y2020::solve_15b(const std::vector<std::string> &input) {
   return to_string(solveUsingVector(const_cast<std::vector<std::string>&>(input), 30000000));
 }

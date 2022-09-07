@@ -74,14 +74,14 @@ bool runProgram(vector<Instruction> &instructions) {
   return false;
 }
 
-const std::string y2020::solve_08a(const std::vector<std::string> &input) {
+std::string y2020::solve_08a(const std::vector<std::string> &input) {
   int acc = 0;
   vector<Instruction> instructions = readProgram(const_cast<std::vector<std::string>&>(input), acc);
   runProgram(instructions);
   return to_string(acc);
 }
 
-const std::string y2020::solve_08b(const std::vector<std::string> &input) {
+std::string y2020::solve_08b(const std::vector<std::string> &input) {
   int acc = 0;
   vector<Instruction> instructions = readProgram(const_cast<std::vector<std::string>&>(input), acc);
   size_t size = instructions.size();

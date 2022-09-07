@@ -1,7 +1,7 @@
 #include "../2020.hpp"
 using namespace std;
 
-const std::string y2020::solve_13a(const std::vector<std::string> &input) {
+std::string y2020::solve_13a(const std::vector<std::string> &input) {
   size_t time = stoi(input[0]);
   string s = input[1];
   vector<size_t> buses;
@@ -15,7 +15,7 @@ const std::string y2020::solve_13a(const std::vector<std::string> &input) {
     }
     begin = end + 1;
     end = s.find(",", begin);
-  };
+  }
 
   size_t min = SIZE_MAX;
   size_t min_id = 0;
@@ -35,7 +35,7 @@ struct Bus {
   size_t offset;
 };
 
-const std::string y2020::solve_13b(const std::vector<std::string> &input) {
+std::string y2020::solve_13b(const std::vector<std::string> &input) {
   string s = input[1];
   vector<Bus> buses;  // first = bus number, second = timestamp offset
 
@@ -54,7 +54,7 @@ const std::string y2020::solve_13b(const std::vector<std::string> &input) {
     offset++;
     begin = end + 1;
     end = s.find(",", begin);
-  };
+  }
 
   sort(buses.begin(), buses.end(), [](Bus a, Bus b) { return a.num > b.num; });
 

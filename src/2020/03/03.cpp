@@ -44,11 +44,11 @@ static size_t count_trees(std::vector<std::string> &input, int moveX, int moveY)
   return trees;
 }
 
-const std::string y2020::solve_03a(const std::vector<std::string> &input) {
+std::string y2020::solve_03a(const std::vector<std::string> &input) {
   return to_string(count_trees(const_cast<std::vector<std::string>&>(input), 3, 1));
 }
 
-const std::string y2020::solve_03b(const std::vector<std::string> &input) {
+std::string y2020::solve_03b(const std::vector<std::string> &input) {
   size_t result = 1;
   result *= count_trees(const_cast<std::vector<std::string>&>(input), 1, 1);
   result *= count_trees(const_cast<std::vector<std::string>&>(input), 3, 1);
