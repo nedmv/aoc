@@ -22,7 +22,7 @@ int decodeDigit(std::string pattern) {
   return num;
 }
 
-int decodeOutput(string &output, string &decodePattern) {
+int decodeOutput(string &output, const string &decodePattern) {
   map<char, char> decodeMap;
 
   decodeMap[decodePattern[0]] = 'a';
@@ -49,7 +49,7 @@ int decodeOutput(string &output, string &decodePattern) {
          decodeDigit(digits[4].str());
 }
 
-char findNotExistingElement(string input, string elements) {
+char findNotExistingElement(const string &input, string elements) {
   for (int i = 0; i < elements.size(); i++) {
     if (input.find(elements[i]) == string::npos) {
       return elements[i];
@@ -58,14 +58,14 @@ char findNotExistingElement(string input, string elements) {
   return '-';
 }
 
-char findFirstDifferentElement(string input, char element) {
+char findFirstDifferentElement(const string &input, char element) {
   int i;
   for (i = 0; i < input.size(); i++) {
     if (input[i] != element) {
-      break;
+      return input[i];
     }
   }
-  return input[i];
+  return '\0';
 }
 
 std::string decodeInput(std::string &input) {

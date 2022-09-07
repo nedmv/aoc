@@ -74,11 +74,9 @@ static void reduce(vector<RegularNumber> &num) {
   }
 }
 
-static vector<RegularNumber> sum(vector<RegularNumber> &num1, vector<RegularNumber> &num2) {
+static vector<RegularNumber> sum(const vector<RegularNumber> &num1, const vector<RegularNumber> &num2) {
   vector result = num1;
-  for (auto &num: num2) {
-    result.push_back(num);
-  }
+  copy(num2.begin(), num2.end(), back_inserter(result));
   for (int i = 0; i < result.size(); i++) {
     result[i].level++;
   }

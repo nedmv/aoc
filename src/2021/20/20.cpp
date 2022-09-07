@@ -5,7 +5,7 @@
 using namespace std;
 
 // clang-format off
-static uint countIndex(vector<vector<bool>> &image, int i, int j) {
+static uint countIndex(const vector<vector<bool>> &image, int i, int j) {
   uint index = 256 * image[i - 1][j - 1] + 128 * image[i - 1][j] + 64 * image[i - 1][j + 1] 
                + 32 * image[i][j - 1] + 16 * image[i][j] + 8 * image[i][j + 1] +
                4 * image[i + 1][j - 1] + 2 * image[i + 1][j] + 1 * image[i + 1][j + 1];
@@ -57,7 +57,7 @@ static void shrink(vector<vector<bool>> &image) {
   }
 }
 
-static void enchance(vector<vector<bool>> &image, vector<bool> &algorithm) {
+static void enchance(vector<vector<bool>> &image, const vector<bool> &algorithm) {
   vector<vector<bool>> result(image.size(),
                               vector<bool>(image[0].size(), false));
   for (int i = 1; i < result.size() - 1; i++) {

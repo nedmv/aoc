@@ -25,10 +25,9 @@ const std::string y2021::solve_01b(const std::vector<std::string> &input) {
 
   int count = 0;
   int sliding = 0;
-  int sliding_old;
 
   for (size_t i = 1; i < size - 1; i++) {
-    sliding_old = sliding;
+    int sliding_old = sliding;
     sliding = data[i-1] + data[i] + data[i + 1];
  
     if ((sliding > sliding_old)&& (i!= 1)) {

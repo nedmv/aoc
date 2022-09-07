@@ -3,7 +3,7 @@ using namespace std;
 
 class Field {
  public:
-  Field(string &input) {
+  explicit Field(string &input) {
     smatch match;
     if (regex_match(
             input, match,
@@ -17,7 +17,6 @@ class Field {
       cout << "Match failed: " << input << endl;
     }
   }
-  ~Field() {}
   bool inRange(uint32_t x) {
     return ((x >= _min1) && (x <= _max1)) || ((x >= _min2) && (x <= _max2));
   }
@@ -44,13 +43,11 @@ vector<bool> checkRanges(uint32_t x, vector<Field> &fields) {
   return result;
 }
 
-bool checkRanges(vector<uint32_t> &values, vector<Field> &fields, vector<vector<bool>> &checks) {
+bool checkRanges(const vector<uint32_t> &values, vector<Field> &fields, vector<vector<bool>> &checks) {
   size_t size = fields.size();
-  size_t counter;
-  uint32_t value;
   for (size_t i = 0; i < size; ++i) {
-    value = values[i];
-    counter = 0;
+    uint32_t value = values[i];
+    size_t counter = 0;
     for (size_t j = 0; j < size; ++j) {
       if (fields[j].inRange(value)) {
         checks[i][j] = true;
@@ -64,12 +61,12 @@ bool checkRanges(vector<uint32_t> &values, vector<Field> &fields, vector<vector<
 
 class Checklist {
   public:
-  Checklist(size_t size):
+  explicit Checklist(size_t size):
     _checks{vector(size, vector<bool>(size, true))},
     _counters{vector(size, size)} {}
   ~Checklist() {}
 
-  bool merge(Checklist &list) {
+  bool merge(const Checklist &list) {
     size_t size = _checks.size();
     for (size_t i = 0; i < size; ++i) {
       for (size_t j = 0; j < size; ++j) {
@@ -107,9 +104,8 @@ class Checklist {
 
   bool checkRanges(vector<uint32_t> values, vector<Field> &fields) {
   size_t size = fields.size();
-  uint32_t value;
   for (size_t i = 0; i < size; ++i) {
-    value = values[i];
+    uint32_t value = values[i];
     _counters[i] = 0;
     for (size_t j = 0; j < size; ++j) {
       if (fields[j].inRange(value)) {
@@ -150,15 +146,13 @@ const std::string y2020::solve_16a(const std::vector<std::string> &input) {
   i++;
 
   string s;
-  size_t begin;
-  size_t end;
   size_t num;
   size_t sum = 0;
 
-  for (i; i < input.size(); i++) {
+  for (; i < input.size(); i++) {
     s = input[i];
-    begin = 0;
-    end = s.find(",", begin);
+    size_t begin = 0;
+    size_t end = s.find(",", begin);
     while (true) {
       num = stoi(s.substr(begin, end - begin));
       cout << num << " ";
@@ -178,7 +172,7 @@ const std::string y2020::solve_16a(const std::vector<std::string> &input) {
 
 class Ticket {
  public:
-  Ticket(string s) {
+  explicit Ticket(string s) {
     size_t begin = 0;
     size_t end = s.find(",", begin);
     while (true) {
@@ -237,7 +231,7 @@ const std::string y2020::solve_16b(const std::vector<std::string> &input) {
   Checklist possibleChecks(size);
   Checklist currentChecks(size);
 
-  for (i; i < input.size(); i++) {
+  for (; i < input.size(); i++) {
     if (currentChecks.checkRanges(loadTicket(const_cast<std::string &>(input[i])), fields) 
         && possibleChecks.merge(currentChecks)) {
           break;
@@ -246,8 +240,8 @@ const std::string y2020::solve_16b(const std::vector<std::string> &input) {
 
   auto indices = possibleChecks.getDepartureIndices(fields);
   size_t result = 1;
-  for (size_t i = 0; i < indices.size(); i++) {
-    result *= myTicket[indices[i]];
+  for (size_t k = 0; k < indices.size(); k++) {
+    result *= myTicket[indices[k]];
   }
 
   return to_string(result);

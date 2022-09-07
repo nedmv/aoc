@@ -6,10 +6,9 @@ using namespace std;
 const std::string y2020::solve_06a(const std::vector<std::string> &input) {
   bitset<26> b;
   size_t result = 0;
-  size_t size = 0;
-  uint8_t id = 0;
+  uint8_t id;
   for (size_t i = 0; i < input.size(); i++) {
-    size = input[i].size();
+    size_t size = input[i].size();
     if (size == 0) {
       result += b.count();
       b.reset();
@@ -28,10 +27,9 @@ const std::string y2020::solve_06b(const std::vector<std::string> &input) {
   bitset<26> common_answers, current_answers;
   common_answers.set();
   size_t result = 0;
-  size_t size = 0;
-  uint8_t id = 0;
+  uint8_t id;
   for (size_t i = 0; i < input.size(); i++) {
-    size = input[i].size();
+    size_t size = input[i].size();
     if (size == 0) {
       result += common_answers.count();
       common_answers.set();

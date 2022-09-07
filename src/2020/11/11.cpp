@@ -3,7 +3,7 @@ using namespace std;
 
 enum seatStatus { FLOOR, EMPTY, TAKEN };
 
-size_t countNeighborsA(vector<vector<seatStatus>> &data, size_t row,
+size_t countNeighborsA(const vector<vector<seatStatus>> &data, size_t row,
                        size_t col) {
   size_t result = 0;
   for (size_t i = row - 1; i <= row + 1; i++) {
@@ -15,7 +15,7 @@ size_t countNeighborsA(vector<vector<seatStatus>> &data, size_t row,
   return result;
 }
 
-size_t checkDirection(vector<vector<seatStatus>> &data, size_t row, size_t col,
+size_t checkDirection(const vector<vector<seatStatus>> &data, size_t row, size_t col,
                       int row_step, int col_step) {
   size_t rows = data.size();
   size_t cols = data[0].size();
@@ -34,7 +34,7 @@ size_t checkDirection(vector<vector<seatStatus>> &data, size_t row, size_t col,
   return 0;
 }
 
-size_t countNeighborsB(vector<vector<seatStatus>> &data, size_t row,
+size_t countNeighborsB(const vector<vector<seatStatus>> &data, size_t row,
                        size_t col) {
   size_t result = 0;
 
@@ -51,22 +51,22 @@ size_t countNeighborsB(vector<vector<seatStatus>> &data, size_t row,
   return result;
 }
 
-seatStatus rulesA(vector<vector<seatStatus>> &data, size_t i, size_t j) {
+seatStatus rulesA(const vector<vector<seatStatus>> &data, size_t i, size_t j) {
   seatStatus status = data[i][j];
   if ((status == EMPTY) && (countNeighborsA(data, i, j) == 0)) return TAKEN;
   if ((status == TAKEN) && (countNeighborsA(data, i, j) >= 4)) return EMPTY;
   return status;
 }
 
-seatStatus rulesB(vector<vector<seatStatus>> &data, size_t i, size_t j) {
+seatStatus rulesB(const vector<vector<seatStatus>> &data, size_t i, size_t j) {
   seatStatus status = data[i][j];
   if ((status == EMPTY) && (countNeighborsB(data, i, j) == 0)) return TAKEN;
   if ((status == TAKEN) && (countNeighborsB(data, i, j) >= 5)) return EMPTY;
   return status;
 }
 
-size_t countTakenSeats(std::vector<std::string> input,
-                       seatStatus rules(vector<vector<seatStatus>> &, size_t,
+size_t countTakenSeats(const std::vector<std::string> &input,
+                       seatStatus rules(const vector<vector<seatStatus>> &, size_t,
                                         size_t)) {
   size_t rows = input.size();
   size_t cols = input[0].size();
@@ -85,10 +85,8 @@ size_t countTakenSeats(std::vector<std::string> input,
   }
 
   vector<vector<seatStatus>> current;
-  bool isChanged;
   do {
     current = future;
-    isChanged = false;
     for (size_t i = 1; i <= rows; i++) {
       for (size_t j = 1; j <= cols; j++) {
         future[i][j] = rules(current, i, j);

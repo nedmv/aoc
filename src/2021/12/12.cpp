@@ -8,7 +8,7 @@ using namespace std;
 
 class Cave {  
  public:
-  Cave(const string &name): _name{name} {
+  explicit Cave(const string &name): _name{name} {
     getType(name);
   }
   ~Cave() {}
@@ -37,7 +37,7 @@ class Cave {
   }
 };
 
-static int findOrAddCave(vector<Cave> &caves, string name) {
+static int findOrAddCave(vector<Cave> &caves, const string &name) {
   int pos = -1;
   size_t size = caves.size();
   for(int i = 0; i < size; i++) {

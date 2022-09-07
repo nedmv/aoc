@@ -7,9 +7,8 @@ const std::string y2020::solve_09a(const std::vector<std::string> &input) {
   for (size_t i = 0; i < size; i++) {
     data.push_back(stoul(input[i]));
   }
-  bool isValid;
   for (size_t i = 25; i < size; i++) {
-    isValid = false;
+    bool isValid = false;
     for (size_t j = i - 25; j < i - 1; j++) {
       for (size_t k = j + 1; k < i; k++) {
         if (data[i] == (data[j] + data[k])) {

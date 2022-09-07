@@ -7,7 +7,7 @@ using namespace std;
  * Release: ~0.7 seconds
  *
  */
-size_t solveUsingVector(vector<string> &input, size_t last_num) {
+size_t solveUsingVector(const vector<string> &input, size_t last_num) {
   string s;
   vector<size_t> data(last_num + 1, 0);
   size_t prev;
@@ -27,7 +27,7 @@ size_t solveUsingVector(vector<string> &input, size_t last_num) {
       end = s.find(",", begin);
     }
   }
-  for (pos; pos < last_num; pos++) {
+  for (; pos < last_num; pos++) {
     size_t value = data[prev];
     if (value) {
       next = pos - value;
@@ -46,7 +46,7 @@ size_t solveUsingVector(vector<string> &input, size_t last_num) {
  * Release: ~10 seconds
  *
  */
-size_t solveUsingMap(vector<string> &input, size_t last_num) {
+size_t solveUsingMap(const vector<string> &input, size_t last_num) {
   string s;
   map<size_t, size_t> data;  // 0 - num, 1 - last pos.
   map<size_t, size_t>::iterator it;
@@ -67,7 +67,7 @@ size_t solveUsingMap(vector<string> &input, size_t last_num) {
       end = s.find(",", begin);
     }
   }
-  for (pos; pos < last_num - 1; pos++) {
+  for (; pos < last_num - 1; pos++) {
     it = data.find(prev);
     if (it != data.end()) {
       next = pos - (*it).second;
@@ -87,7 +87,7 @@ size_t solveUsingMap(vector<string> &input, size_t last_num) {
  * Release: ~1.7 seconds
  *
  */
-size_t solveUsingUnorderedMap(vector<string> &input, size_t last_num) {
+size_t solveUsingUnorderedMap(const vector<string> &input, size_t last_num) {
   string s;
   unordered_map<size_t, size_t> data;  // 0 - num, 1 - last pos.
   unordered_map<size_t, size_t>::iterator it;
@@ -109,7 +109,7 @@ size_t solveUsingUnorderedMap(vector<string> &input, size_t last_num) {
       end = s.find(",", begin);
     }
   }
-  for (pos; pos < last_num - 1; pos++) {
+  for (; pos < last_num - 1; pos++) {
     it = data.find(prev);
     if (it != data.end()) {
       next = pos - (*it).second;

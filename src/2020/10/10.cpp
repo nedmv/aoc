@@ -1,7 +1,7 @@
 #include "../2020.hpp"
 using namespace std;
 
-static vector<uint32_t> sort_adapters(vector<string> &input) {
+static vector<uint32_t> sort_adapters(const vector<string> &input) {
   vector<uint32_t> data;
   data.push_back(0);  // charger
   for (size_t i = 0; i < input.size(); i++) {

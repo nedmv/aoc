@@ -2,6 +2,7 @@
 // Keywords:
 #include "../2021.hpp"
 #include "../../utils.hpp"
+#include <numeric>
 using namespace std;
 
 // each fish has it's own counter, works only for low fish amounts
@@ -38,12 +39,7 @@ size_t countFish(const std::string &initialState, int lastDay) {
     counters[8] = tmp;
     counters[6] += tmp;
   }
-
-  size_t count = 0;
-  for (auto &c : counters) {
-    count += c;
-  }
-  return count;
+  return accumulate(counters.begin(), counters.end(), 0);
 }
 
 const std::string y2021::solve_06a(const std::vector<std::string> &input) {

@@ -32,7 +32,7 @@ static vector<vector<size_t>> generateFullMap(vector<vector<size_t>> &maze) {
 }
 
 
-static Point getPointWithMinF(vector<Point> &points, vector<vector<size_t>> &f) {
+static Point getPointWithMinF(const vector<Point> &points, const vector<vector<size_t>> &f) {
   size_t fMin = f[points[0].x][points[0].y];
   size_t iMin = 0;
   for (int i = 1; i < points.size(); i++){

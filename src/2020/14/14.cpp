@@ -34,7 +34,7 @@ class IDecoder {
 
 class DecoderA : public IDecoder {
  public:
-  DecoderA(vector<string> input) { init(input); }
+  explicit DecoderA(vector<string> input) { init(input); }
   ~DecoderA() {}
 
  private:
@@ -56,7 +56,7 @@ class DecoderA : public IDecoder {
 };
 class DecoderB : public IDecoder {
  public:
-  DecoderB(vector<string> input) { init(input); }
+  explicit DecoderB(vector<string> input) { init(input); }
   ~DecoderB() {}
 
  private:
@@ -88,7 +88,7 @@ class DecoderB : public IDecoder {
     return masked;
   }
 
-  vector<size_t> getAddresses(const string mask) {
+  vector<size_t> getAddresses(const string &mask) {
     vector<size_t> addresses(1, 0);
     vector<size_t> tmp;
 

@@ -5,7 +5,7 @@ enum Operation { ACC, JMP, NOP };
 class Instruction {
  public:
   ~Instruction(){};
-  Instruction(const string input, int &acc) : wasExecuted{false}, acc{acc} {
+  Instruction(const string &input, int &acc) : wasExecuted{false}, acc{acc} {
     smatch match;
     regex_match(input, match, regex(R"((acc|jmp|nop) ([+-][0-9]+))"));
     if (match[1].str() == "acc") {
@@ -47,7 +47,7 @@ class Instruction {
   int _num;
 };
 
-static vector<Instruction> readProgram(vector<string> &input, int &acc) {
+static vector<Instruction> readProgram(const vector<string> &input, int &acc) {
   vector<Instruction> instructions;
   for (size_t i = 0; i < input.size(); i++) {
     Instruction cmd(input[i], acc);

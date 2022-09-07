@@ -71,7 +71,7 @@ const std::string y2021::solve_13a(const std::vector<std::string> &input) {
   i++;
   vector<Fold> folds;
   regex fold(R"(fold along ([xy]?)=([0-9]+))");
-  for (i; i < input.size(); i++) {
+  for (; i < input.size(); i++) {
     regex_match(input[i], match, fold);
     folds.push_back(Fold(match[1].str()[0], ToInt(match[2])));
   }
@@ -109,12 +109,12 @@ const std::string y2021::solve_13b(const std::vector<std::string> &input) {
   i++;
   vector<Fold> folds;
   regex fold(R"(fold along ([xy]?)=([0-9]+))");
-  for (i; i < input.size(); i++) {
+  for (; i < input.size(); i++) {
     regex_match(input[i], match, fold);
     folds.push_back(Fold(match[1].str()[0], ToInt(match[2])));
   }
-  for (int i = 0; i < folds.size(); i++) {
-    dots = folds[i].fold(dots);
+  for (int k = 0; k < folds.size(); k++) {
+    dots = folds[k].fold(dots);
   }
   return visualize(dots);
 }

@@ -9,7 +9,7 @@ const std::string y2020::solve_13a(const std::vector<std::string> &input) {
   size_t begin = 0;
   size_t end = s.find(",");
 
-  while (end != s.npos) {
+  while (end != string::npos) {
     if (s.at(begin) != 'x') {
       buses.push_back(stoi(s.substr(begin, end - begin)));
     }
@@ -19,10 +19,9 @@ const std::string y2020::solve_13a(const std::vector<std::string> &input) {
 
   size_t min = SIZE_MAX;
   size_t min_id = 0;
-  size_t delay;
 
   for (size_t i = 0; i < buses.size(); i++) {
-    delay = buses[i] - time % buses[i];
+    size_t delay = buses[i] - time % buses[i];
     if (delay < min) {
       min = delay;
       min_id = buses[i];
@@ -51,7 +50,7 @@ const std::string y2020::solve_13b(const std::vector<std::string> &input) {
       tmp.offset = offset;
       buses.push_back(tmp);
     }
-    if (end == s.npos) break;
+    if (end == string::npos) break;
     offset++;
     begin = end + 1;
     end = s.find(",", begin);

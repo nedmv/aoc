@@ -4,7 +4,7 @@ using namespace std;
 class Bag {
  public:
   Bag(){};
-  Bag(const string input) {
+  explicit Bag(const string &input) {
     regex r_name(R"(([a-z ]+) bags contain)");
     regex r_insides(R"( ([0-9]+) ([a-z ]+) bag[s]?[,.])");
     smatch match;
@@ -21,13 +21,13 @@ class Bag {
   string _name;
 };
 
-static inline bool isInsideBag(const string name, Bag &bag) {
+static inline bool isInsideBag(const string &name, const Bag &bag) {
   auto insides = bag._insides;
   if (insides.find(name) != insides.end()) return true;
   return false;
 }
 
-static inline bool isInsideList(const string name, vector<string> list) {
+static inline bool isInsideList(const string &name, vector<string> list) {
   if (find(list.begin(), list.end(), name) != list.end()) return true;
   return false;
 }
@@ -78,14 +78,14 @@ const std::string y2020::solve_07a(const std::vector<std::string> &input) {
   return to_string(countPossibleContainers("shiny gold", bags));
 }
 
-static size_t findBagId(const string name, vector<Bag> &bags) {
+static size_t findBagId(const string &name, const vector<Bag> &bags) {
   for (size_t i = 0; i < bags.size(); i++) {
     if (bags[i]._name == name) return i;
   }
   return bags.size();
 }
 
-static size_t countInsides(string name, vector<Bag> &bags) {
+static size_t countInsides(const string &name, vector<Bag> &bags) {
   size_t counter = 1;
   auto insides = bags[findBagId(name, bags)]._insides;
   for (auto const &[key, val] : insides) {

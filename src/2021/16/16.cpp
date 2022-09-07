@@ -2,6 +2,7 @@
 // Keywords:
 #include "../../utils.hpp"
 #include "../2021.hpp"
+#include <numeric>
 using namespace std;
 
 class Packet {
