@@ -91,7 +91,7 @@ void year2021() {
 
 void year2020() {
   using namespace y2020;
-  Task t = Task();
+  Task t;
   t.setYear(2020);
 
   t.execute("01a", solve_01a);

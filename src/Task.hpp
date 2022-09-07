@@ -41,7 +41,7 @@ class Task {
    * @brief Construct a new Task object
    *
    */
-  Task(){};
+  Task() = default;
 
   /**
    * @brief Construct a new Task object with given _id and solver.
@@ -55,12 +55,6 @@ class Task {
    * Function must take vector of strings as argument and return single string.
    */
   Task(const std::string &id, solution_t solver);
-
-  /**
-   * @brief Destroy the Task object
-   *
-   */
-  ~Task(){};
 
   /**
    * @brief Execute given solver and check result.
@@ -127,7 +121,7 @@ class Task {
    *
    * @return string Task day
    */
-  std::string getId();
+  std::string getId() const;
 
   /**
    * @brief Get task part id.
@@ -135,7 +129,7 @@ class Task {
    * @return char
    * 'a' for part one, 'b' for part two.
    */
-  char getPartId();
+  char getPartId() const;
 
   /**
    * @brief Set puzzle year. It is used to determine relative path to puzzle files.

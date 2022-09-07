@@ -10,9 +10,8 @@
 using namespace std;
 using namespace std::chrono;
 
-Task::Task(const string &id, solution_t solver) {
+Task::Task(const string &id, solution_t solver): solve{solver} {
   _setId(id);
-  this->solve = solver;
 }
 
 string Task::execute(const string &id, solution_t solver) {
@@ -77,7 +76,7 @@ time_t Task::benchmark() {
 
 void Task::multirun(const std::string &id, solution_t solver, size_t n) {
   _setId(id);
-  this->solve = solver;
+  solve = solver;
   _input.clear();
   _result.clear();
   read_input();
@@ -98,12 +97,12 @@ void Task::multirun(const std::string &id, solution_t solver, size_t n) {
        << ", max = " << max << "." << endl;
 }
 
-string Task::getId() {
+string Task::getId() const {
   assert(_id.length() == 3);
   return _id.substr(0, 2);
 }
 
-char Task::getPartId() {
+char Task::getPartId() const {
   assert(_id.length() == 3);
   return _id.at(2);
 }
