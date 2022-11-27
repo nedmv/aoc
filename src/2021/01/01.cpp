@@ -1,3 +1,4 @@
+// Puzzle is available at https://adventofcode.com/2020/day/1
 #include "../2021.hpp"
 #include "../../utils.hpp"
 using namespace std;

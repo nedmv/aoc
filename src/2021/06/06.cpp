@@ -1,4 +1,4 @@
-// Puzzle is available at https://adventofcode.com/2021/day/06
+// Puzzle is available at https://adventofcode.com/2021/day/6
 // Keywords:
 #include "../2021.hpp"
 #include "../../utils.hpp"

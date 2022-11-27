@@ -1,4 +1,4 @@
-// Puzzle is available at https://adventofcode.com/2021/day/09
+// Puzzle is available at https://adventofcode.com/2021/day/9
 // Keywords: recursion
 #include "../../utils.hpp"
 #include "../2021.hpp"

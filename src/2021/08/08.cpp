@@ -1,4 +1,4 @@
-// Puzzle is available at https://adventofcode.com/2021/day/08
+// Puzzle is available at https://adventofcode.com/2021/day/8
 // Keywords:
 #include <algorithm>
 

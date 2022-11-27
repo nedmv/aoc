@@ -1,4 +1,4 @@
-// Puzzle is available at https://adventofcode.com/2021/day/07
+// Puzzle is available at https://adventofcode.com/2021/day/7
 // Keywords: functional, lambda
 #include <cmath>
 #include <functional>

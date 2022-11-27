@@ -75,7 +75,7 @@ def init_puzzle_source(year, day):
     print(f"{path} already initialized!")
   else:
     with open(path, 'w') as f:
-      f.write(f'// Puzzle is available at https://adventofcode.com/{year}/day/{day}'+'\n')
+      f.write(f'// Puzzle is available at https://adventofcode.com/{year}/day/{int(day):g}'+'\n')
       f.write(f'// Keywords:'+'\n')
       f.write(f'#include "../{year}.hpp"'+'\n')
       f.write(f'#include "../../utils.hpp"'+'\n')

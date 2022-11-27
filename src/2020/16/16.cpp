@@ -1,3 +1,4 @@
+// Puzzle is available at https://adventofcode.com/2020/day/16
 #include "../2020.hpp"
 using namespace std;
 
@@ -75,9 +76,9 @@ class Checklist {
           _counters[i]--;
         }
       }
-      cout << _counters[i] << ' ';
+      // cout << _counters[i] << ' ';
     }
-    cout << endl;
+    // cout << endl;
     return check_counters();
   }
 
@@ -155,12 +156,12 @@ std::string y2020::solve_16a(const std::vector<std::string> &input) {
     size_t end = s.find(",", begin);
     while (true) {
       num = stoi(s.substr(begin, end - begin));
-      cout << num << " ";
+      // cout << num << " ";
       if (!inRanges(num, fields)) {
         sum += num;
       }
       if (end == s.npos) {
-        cout << endl;
+        // cout << endl;
         break;
       }
       begin = end + 1;

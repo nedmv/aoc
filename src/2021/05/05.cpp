@@ -1,4 +1,4 @@
-// Puzzle is available at https://adventofcode.com/2021/day/05
+// Puzzle is available at https://adventofcode.com/2021/day/5
 // Keywords: regex
 #include <regex>
 
