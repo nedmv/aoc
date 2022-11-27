@@ -9,6 +9,7 @@ python3 download_puzzle.py 2020 1
 import os
 import requests
 import argparse
+from datetime import datetime
 
 import pypandoc
 from bs4 import BeautifulSoup
@@ -158,25 +159,44 @@ def get_puzzle_input(year: int, day: int):
   else:
     print(f"Request failed with code {r.status_code}.")
 
+ 
+def puzzle_date_is_valid(year: int, day: int) -> bool:
+  """Check if puzzle with given date should be available by now.
+
+  Args:
+      year (int): Puzzle year
+      day (int): Puzzle day
+  """ 
+  date = datetime.utcnow()
+  try:
+    assert (2015 <= year and year <= (date.year if date.month == 12 else date.year - 1))
+    assert (1 <= day)
+    if year == date.year:
+      assert (day <= date.day)
+      if (day == date.day):
+        assert (5 <= date.hour) #puzzle unlocks in 05:00UTC
+    else:
+      assert (day <= 25)
+  except AssertionError:
+    print(f"Error: invalid puzzle date {day}/12/{year}")
+    return False
+  return True
+
 def main():
   """Check args and call logic.
   """  
   parser = argparse.ArgumentParser()
   parser.add_argument('year', nargs='+', metavar='YEAR', type=int, 
-                      help = "valid adventofcode.com year (2015-2021)")
+                      help = "valid adventofcode.com year (since 2015)")
   parser.add_argument('day', nargs='+', metavar='DAY', type=int, 
                       help = "valid adventofcode.com day (1-25)")
   args = parser.parse_args()
   year = args.year[0]
   day = args.day[0]
 
-  #TODO: handle future years
-  assert (year >= 2015 and year <= 2021)
-  assert (day >= 1 and day <= 25)
-  init_puzzle_dir(year, day)
-  #TODO: check if it's necessary to rewrite input when part2 unlocks.
-  request_puzzle_data(year, day)
-
+  if puzzle_date_is_valid(year, day):
+    init_puzzle_dir(year, day)
+    request_puzzle_data(year, day)
 
 if __name__ == "__main__":
   main()
