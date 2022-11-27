@@ -39,7 +39,7 @@ size_t countFish(const std::string &initialState, int lastDay) {
     counters[8] = tmp;
     counters[6] += tmp;
   }
-  return accumulate(counters.begin(), counters.end(), 0);
+  return accumulate(counters.begin(), counters.end(), (size_t)0);
 }
 
 std::string y2021::solve_06a(const std::vector<std::string> &input) {
