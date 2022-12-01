@@ -7,9 +7,9 @@
 #include <string>
 #include <vector>
 
-#include "2020/2020.hpp"
-#include "2021/2021.hpp"
-#include "2022/2022.hpp"
+#include "../puzzles/2020/2020.hpp"
+#include "../puzzles/2021/2021.hpp"
+#include "../puzzles/2022/2022.hpp"
 #include "Task.hpp"
 
 using namespace std;
