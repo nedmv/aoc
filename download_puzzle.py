@@ -14,7 +14,7 @@ from datetime import datetime
 import pypandoc
 from bs4 import BeautifulSoup
 
-USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36'
+USER_AGENT = 'github.com/nedmv/aoc by nedmvl@rambler.ru'
 TOKEN_PATH=".aoc_token"
 
 def request_puzzle_data(year: int, day: int):
