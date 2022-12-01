@@ -9,6 +9,7 @@
 
 #include "2020/2020.hpp"
 #include "2021/2021.hpp"
+#include "2022/2022.hpp"
 #include "Task.hpp"
 
 using namespace std;
@@ -140,10 +141,19 @@ void year2020() {
   t.execute("15b", solve_15b);
 
   t.execute("16a", solve_16a);
-  t.execute("16b", solve_16b);
+}
+
+void year2022() {
+  using namespace y2022;
+  Task t;
+  t.setYear(2022);
+
+  t.execute("01a", solve_01a);
+  t.execute("01b", solve_01b);
 }
 
 int main() {
   year2020();
   year2021();
+  year2022();
 }
