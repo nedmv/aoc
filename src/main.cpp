@@ -150,6 +150,9 @@ void year2022() {
 
   t.execute("01a", solve_01a);
   t.execute("01b", solve_01b);
+
+  t.execute("02a", solve_02a);
+  t.execute("02b", solve_02b);
 }
 
 int main() {
