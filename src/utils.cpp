@@ -24,3 +24,13 @@ size_t binaryStringToDecimal(const std::string &binary) {
   }
   return result;
 }
+
+int sign(int val) {
+  if (val < 0) {
+    return -1;
+  }
+  if (val > 0) {
+    return 1;
+  }
+  return 0;
+}

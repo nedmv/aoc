@@ -35,3 +35,11 @@ inline int stoiWrap(const std::string &str) { return std::stoi(str); }
  * @return Result (size_t)
  */
 size_t binaryStringToDecimal(const std::string &binary);
+
+/**
+ * @brief Return sign of given value.
+ * 
+ * @param value Integer number.
+ * @return -1 if value is negative, 1 if value is positive, 0 if val = 0.
+ */
+int sign(int value);
