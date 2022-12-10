@@ -2,6 +2,12 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <map>
+#include <unordered_map>
+#include <set>
+#include <unordered_set>
+#include <queue>
+#include <regex>
 //Add your includes here
 
 #include "../../src/Task.hpp" //ERROR_STRING
