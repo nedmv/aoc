@@ -180,10 +180,15 @@ void year2022() {
 
   t.execute("11a", solve_11a);
   t.execute("11b", solve_11b);
+
+  t.execute("12a", solve_12a);
+  t.execute("12b", solve_12b);
 }
 
 int main() {
   year2020();
   year2021();
   year2022();
+
+  
 }
