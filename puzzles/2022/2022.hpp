@@ -87,6 +87,5 @@ std::string solve_24a(const std::vector<std::string> &input);
 std::string solve_24b(const std::vector<std::string> &input);
 
 std::string solve_25a(const std::vector<std::string> &input);
-std::string solve_25b(const std::vector<std::string> &input);
 
 }

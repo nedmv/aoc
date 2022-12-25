@@ -11,6 +11,7 @@
 #include "../puzzles/2021/2021.hpp"
 #include "../puzzles/2022/2022.hpp"
 #include "Task.hpp"
+#include "utils.hpp"
 
 using namespace std;
 
@@ -186,12 +187,47 @@ void year2022() {
 
   t.execute("13a", solve_13a);
   t.execute("13b", solve_13b);
+#if 0 //FIXME: optimization required
+  t.execute("14a", solve_14a);
+  t.execute("14b", solve_14b);
+
+  t.execute("15a", solve_15a);
+  t.execute("15b", solve_15b);
+
+  t.execute("16a", solve_16a);
+  t.execute("16b", solve_16b);
+
+  t.execute("17a", solve_17a);
+  t.execute("17b", solve_17b);
+
+  t.execute("18a", solve_18a);
+  t.execute("18b", solve_18b);
+
+  t.execute("19a", solve_19a);
+  t.execute("19b", solve_19b);
+
+  t.execute("20a", solve_20a);
+  t.execute("20b", solve_20b);
+
+  t.execute("21a", solve_21a);
+  t.execute("21b", solve_21b);
+    
+  t.execute("22a", solve_22a);
+  t.execute("22b", solve_22b);
+
+  t.execute("23a", solve_23a);
+  t.execute("23b", solve_23b);
+#endif
+
+  t.execute("24a", solve_24a);
+  t.execute("24b", solve_24b);
+
+  t.execute("25a", solve_25a);
 }
 
 int main() {
   year2020();
   year2021();
   year2022();
-
   
 }

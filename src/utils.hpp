@@ -43,3 +43,7 @@ size_t binaryStringToDecimal(const std::string &binary);
  * @return -1 if value is negative, 1 if value is positive, 0 if val = 0.
  */
 int sign(int value);
+
+int first(const std::string &s, const int invalid = INT_MIN);
+
+std::vector<int> ints(const std::string &s);

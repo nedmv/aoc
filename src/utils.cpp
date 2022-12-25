@@ -1,5 +1,6 @@
 
 #include "utils.hpp"
+#include <regex>
 
 std::vector<int> parseLineOfNumbers(const std::string &line) {
   std::vector<int> result;
@@ -33,4 +34,28 @@ int sign(int val) {
     return 1;
   }
   return 0;
+}
+
+int first(const std::string &s, const int invalid) {
+  std::regex num(R"((-?[0-9]+))");
+  std::smatch match;
+  if (std::regex_search(s, match, num)) {
+    return stoi(match[1].str());
+  } else {
+    return invalid;
+  }
+}
+
+std::vector<int> ints(const std::string &s) {
+  std::regex num(R"((-?[0-9]+))");
+  auto begin = std::sregex_iterator(s.begin(), s.end(), num);
+  auto end = std::sregex_iterator();
+
+  std::vector<int> result;
+
+  for (std::sregex_iterator i = begin; i != end;++i) {
+    std::smatch match = *i;
+    result.push_back(stoi(match[1].str()));
+  }
+  return result;
 }

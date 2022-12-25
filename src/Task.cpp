@@ -48,7 +48,7 @@ void Task::read_input() {
 }
 
 void Task::celebrate() {
-  cout << "Task " << _year << "-" << _id << " solved! Result = " << _result << "." << endl;
+  cout << "Task " << _year << "-" << _id << " solved! Result = " << _result << endl;
 
   auto answer = rightAnswerPath();
   if (!filesystem::exists(answer)) {
@@ -59,7 +59,7 @@ void Task::celebrate() {
 
 void Task::celibate() {
   cout << "Solution for task "<< _year << "-" << _id << " is incorrect." << endl;
-  cout << "Try something other than " << _result << "." << endl;
+  cout << "Try something other than " << _result << endl;
 
   string errors = wrongAnswerPath();
   auto ofs = ofstream(errors, ofstream::app);
@@ -140,7 +140,7 @@ bool Task::check() {
     }
   }
   // manually check for answer
-  cout << "Result is " << _result << ".\n";
+  cout << "Result is " << _result << "\n";
   cout << "Please manually check it at https://adventofcode.com/";
   cout << _year << "/day/" << stoi(getId()) << "." << endl;
   cout << "Is result correct? (y/n)" << endl;
