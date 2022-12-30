@@ -187,15 +187,17 @@ void year2022() {
 
   t.execute("13a", solve_13a);
   t.execute("13b", solve_13b);
-#if 0 //FIXME: optimization required
+
   t.execute("14a", solve_14a);
   t.execute("14b", solve_14b);
 
   t.execute("15a", solve_15a);
+#ifdef RUN_UNOPTIMIZED
   t.execute("15b", solve_15b);
 
   t.execute("16a", solve_16a);
   t.execute("16b", solve_16b);
+#endif
 
   t.execute("17a", solve_17a);
   t.execute("17b", solve_17b);
@@ -203,22 +205,23 @@ void year2022() {
   t.execute("18a", solve_18a);
   t.execute("18b", solve_18b);
 
+#ifdef RUN_UNOPTIMIZED
   t.execute("19a", solve_19a);
   t.execute("19b", solve_19b);
-
+#endif  
   t.execute("20a", solve_20a);
   t.execute("20b", solve_20b);
-
+  
   t.execute("21a", solve_21a);
   t.execute("21b", solve_21b);
-    
+
   t.execute("22a", solve_22a);
   t.execute("22b", solve_22b);
 
   t.execute("23a", solve_23a);
+#ifdef RUN_UNOPTIMIZED
   t.execute("23b", solve_23b);
 #endif
-
   t.execute("24a", solve_24a);
   t.execute("24b", solve_24b);
 
@@ -229,5 +232,4 @@ int main() {
   year2020();
   year2021();
   year2022();
-  
 }
