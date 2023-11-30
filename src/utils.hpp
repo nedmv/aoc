@@ -3,6 +3,7 @@
 #include <string>
 #include <regex>
 #include <cmath>
+#include <climits>
 
 /**
  * @brief Create vector of numbers from string.
