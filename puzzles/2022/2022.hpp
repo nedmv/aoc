@@ -1,15 +1,5 @@
 #pragma once
-#include <iostream>
-#include <string>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <set>
-#include <unordered_set>
-#include <queue>
-#include <regex>
-//Add your includes here
-
+#include "../headers.hpp"
 #include "../../src/Task.hpp" //ERROR_STRING
 
 namespace y2022 {

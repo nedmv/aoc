@@ -47,10 +47,7 @@ def init_year_header(year):
   else:
     with open(path, 'w') as f:
       f.write('#pragma once\n')
-      f.write('#include <iostream>\n')
-      f.write('#include <string>\n')
-      f.write('#include <vector>\n')
-      f.write('//Add your includes here\n\n')
+      f.write('#include "../headers.hpp"\n')
       f.write('#include "../../src/Task.hpp" //ERROR_STRING\n\n')
       f.write(f'namespace y{year} ' + '{\n\n')
 

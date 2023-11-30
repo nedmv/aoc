@@ -1,9 +1,5 @@
 #pragma once
-#include <iostream>
-#include <string>
-#include <vector>
-//Add your includes here
-
+#include "../headers.hpp"
 #include "../../src/Task.hpp" //ERROR_STRING
 
 namespace y2021 {

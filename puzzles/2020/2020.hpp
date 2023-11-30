@@ -1,15 +1,5 @@
 #pragma once
-#include <algorithm>
-#include <bitset>
-#include <cmath>
-#include <cstdlib>
-#include <iostream>
-#include <map>
-#include <unordered_map>
-#include <regex>
-#include <string>
-#include <vector>
-
+#include "../headers.hpp"
 #include "../../src/Task.hpp"  //ERROR_STRING
 
 namespace y2020 {
