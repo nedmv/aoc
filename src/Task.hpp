@@ -2,7 +2,6 @@
 #include <cstdio>
 #include <string>
 #include <vector>
-
 /**
  * @brief Pointer to eligible Task::solve() method.
  *
@@ -13,7 +12,7 @@ typedef std::string (*solution_t)(const std::vector<std::string> &);
  * @brief Filename of puzzle input.
  * Relative path to file will be <year>/<day>/INPUT
  */
-#define INPUT "input"
+#define DEFAULT_INPUT "input"
 
 /**
  * @brief File extension for right answers.
@@ -139,6 +138,13 @@ class Task {
   void setYear(int year);
 
   /**
+   * @brief Set input file. It is used to determine relative path to puzzle files.
+   * 
+   * @param filename Input filename, relative for puzzle folder 
+   */
+  void setFilename(const std::string &filename);
+
+  /**
    * @brief Prepend filename with relative path to puzzle dir.
    *
    * @param filename name of file
@@ -148,14 +154,16 @@ class Task {
     return "puzzles/" + _year + "/" + getId() + "/" + filename;
   }
 
-  inline std::string inputPath() { return puzzleDirPath(INPUT); }
+  inline std::string inputPath() {
+    return puzzleDirPath(_filename);
+  }
 
   inline std::string rightAnswerPath() {
-    return puzzleDirPath(_id + RIGHT_ANSWER_EXT);
+    return puzzleDirPath(_filename + '.' + _id + RIGHT_ANSWER_EXT);
   }
 
   inline std::string wrongAnswerPath() {
-    return puzzleDirPath(_id + WRONG_ANSWER_EXT);
+    return puzzleDirPath(_filename + '.' + _id + WRONG_ANSWER_EXT);
   }
 
  private:
@@ -169,6 +177,7 @@ class Task {
   inline void _setId(const std::string &id);
 
   std::string _year;
+  std::string _filename = DEFAULT_INPUT;
 
   // TODO: consider using a struct for id.
   /**

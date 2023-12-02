@@ -157,3 +157,9 @@ bool Task::check() {
 void Task::setYear(int year) {
   _year = to_string(year);
 }
+
+void Task::setFilename(const string &filename) {
+  if (0 < filename.size() > 0 && filename.size() < 64) {
+    _filename = filename;
+  }
+}
