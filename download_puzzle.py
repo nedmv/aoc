@@ -43,7 +43,7 @@ def init_year_header(year):
   """
   path = os.path.join("puzzles",f"{year}",f"{year}.hpp");
   if os.path.exists(path):
-    print(f"{path} already initialized!")
+    print(f"{path} is already initialized!")
   else:
     with open(path, 'w') as f:
       f.write('#pragma once\n')
@@ -70,7 +70,7 @@ def init_puzzle_source(year, day):
   """
   path = os.path.join("puzzles",f"{year}",f"{day}",f"{day}.cpp");
   if os.path.exists(path):
-    print(f"{path} already initialized!")
+    print(f"{path} is already initialized!")
   else:
     with open(path, 'w') as f:
       f.write(f'// Puzzle is available at https://adventofcode.com/{year}/day/{int(day):g}'+'\n')
@@ -113,22 +113,26 @@ def get_puzzle_text(year: int, day: int):
   Args:
       year (int): Puzzle year
       day (int): Puzzle day
-  """  
-  url = f"https://adventofcode.com/{year}/day/{day}"
-  headers = {'user-agent': USER_AGENT}
-  r = requests.get(url, headers = headers)
-  if (r.status_code == 200):
-    html = r.text
-    soup = BeautifulSoup(html, features="html.parser")
-    article = soup.body.find('article')
-    md = pypandoc.convert_text(article, 'md', format='html')
-    day = fd(day)
-    with open(f"puzzles/{year}/{day}/puzzle.md", 'w') as f:
-      f.write(md)
-      f.name
-      print(f"Puzzle text is available at puzzles/{year}/{day}/puzzle.md")
+  """
+  path = os.path.join("puzzles",f"{year}",f"{fd(day)}","puzzle.md");
+  if os.path.isfile(path):
+    print(f"Puzzle text is already downloaded.")
   else:
-    print(f"Request failed with code {r.status_code}.")
+    url = f"https://adventofcode.com/{year}/day/{day}"
+    headers = {'user-agent': USER_AGENT}
+    r = requests.get(url, headers = headers)
+    if (r.status_code == 200):
+      html = r.text
+      soup = BeautifulSoup(html, features="html.parser")
+      article = soup.body.find('article')
+      md = pypandoc.convert_text(article, 'md', format='html')
+      day = fd(day)
+      with open(path, 'w') as f:
+        f.write(md)
+        f.name
+        print(f"Puzzle text is available at {path}")
+    else:
+      print(f"Request failed with code {r.status_code}.")
 
 
 def get_puzzle_input(year: int, day: int):
@@ -141,20 +145,24 @@ def get_puzzle_input(year: int, day: int):
       year (int): Puzzle year
       day (int): Puzzle day
   """  
-  with open(TOKEN_PATH, 'r') as f:
-    token = f.read()
-  cookies=dict(session=token)
-
-  url = f"https://adventofcode.com/{year}/day/{day}/input"
-  headers = {'user-agent': USER_AGENT}
-  r = requests.get(url, headers = headers, cookies = cookies)
-  day = fd(day)
-  if (r.status_code == 200):
-    with open(f"puzzles/{year}/{day}/input", 'w') as f:
-      f.write(r.text)
-      print(f"Puzzle input is available at puzzles/{year}/{day}/input")
+  path = os.path.join("puzzles",f"{year}",f"{fd(day)}","input");
+  if os.path.isfile(path):
+    print(f"Puzzle input is already downloaded.")
   else:
-    print(f"Request failed with code {r.status_code}.")
+    with open(TOKEN_PATH, 'r') as f:
+      token = f.read()
+    cookies=dict(session=token)
+
+    headers = {'user-agent': USER_AGENT}
+    url = f"https://adventofcode.com/{year}/day/{day}/input"
+    r = requests.get(url, headers = headers, cookies = cookies)
+    day = fd(day)
+    if (r.status_code == 200):
+      with open(path, 'w') as f:
+        f.write(r.text)
+        print(f"Puzzle input is available at {path}")
+    else:
+      print(f"Request failed with code {r.status_code}.")
 
  
 def puzzle_date_is_valid(year: int, day: int) -> bool:
