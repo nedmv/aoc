@@ -77,20 +77,20 @@ time_t Task::benchmark() {
 void Task::multirun(const std::string &id, solution_t solver, size_t n) {
   _setId(id);
   solve = solver;
-  _input.clear();
-  _result.clear();
-  read_input();
   vector<time_t> bench(n, 0);
 
+  _input.clear();
+  read_input();
   for (size_t i = 0; i < n; i++) {
+    _result.clear();
     bench[i] = benchmark();
   }
 
-  auto results = minmax(bench.begin(), bench.end() - 1);
-  time_t max = *results.first;
-  time_t min = *results.second;
+  auto results = minmax_element(bench.begin(), bench.end());
+  time_t min = *(results.first);
+  time_t max = *(results.second);
   // not an accurate average, but results were already rounded to microseconds
-  time_t avg = accumulate(bench.begin(), bench.end(), 0) / n;
+  time_t avg = accumulate(bench.begin(), bench.end(), 0LL) / n;
 
   cout << "Task " << id << " was executed " << n << " times.\n";
   cout << "Times(microseconds): average = " << avg << ", min = " << min
