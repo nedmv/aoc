@@ -107,6 +107,24 @@ def init_puzzle_dir(year: int, day: int):
   init_year_header(year)
   init_puzzle_source(year, day)
 
+def init_test_input(year: int, day: int):
+  """Create puzzle test input if it not exists.
+  Input is located at ./puzzles/{year}/{day}/test. 
+
+  Args:
+      year (int): Puzzle year
+      day (int): Puzzle day
+  """ 
+  day = fd(day)
+  year = str(year)
+  path = os.path.join("puzzles",f"{year}",f"{day}", "test")
+  if os.path.exists(path):
+    print(f"{path} is already initialized!")
+  else:
+    with open(path, 'w') as f:
+      f.write('\n')
+    print(f"Successfully initialized {path}")
+
 def get_puzzle_text(year: int, day: int):
   """Get puzzle text and save it as markdown in ./puzzles/{year}/{day}/puzzle.md
 
@@ -202,6 +220,7 @@ def main():
   if puzzle_date_is_valid(year, day):
     init_puzzle_dir(year, day)
     request_puzzle_data(year, day)
+    init_test_input(year, day)
 
 if __name__ == "__main__":
   main()
