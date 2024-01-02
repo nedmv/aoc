@@ -74,13 +74,17 @@ time_t Task::benchmark() {
   return time;
 }
 
-void Task::multirun(const std::string &id, solution_t solver, size_t n) {
+void Task::multirun(const std::string &id, solution_t solver, size_t n, size_t start) {
   _setId(id);
   solve = solver;
   vector<time_t> bench(n, 0);
 
   _input.clear();
   read_input();
+  for (size_t i = 0; i < start; ++i) {
+    _result.clear();
+    benchmark();
+  }
   for (size_t i = 0; i < n; i++) {
     _result.clear();
     bench[i] = benchmark();

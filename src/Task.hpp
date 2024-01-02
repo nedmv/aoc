@@ -112,8 +112,9 @@ class Task {
    * @param id Task id
    * @param solver Chosen solver
    * @param n Times to run
+   * @param start Iterations to run before actual measurement
    */
-  void multirun(const std::string &id, solution_t solver, size_t n);
+  void multirun(const std::string &id, solution_t solver, size_t n, size_t start = 0);
 
   /**
    * @brief Get task id.
