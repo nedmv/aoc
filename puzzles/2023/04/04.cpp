@@ -8,9 +8,6 @@ std::string y2023::solve_04a(const std::vector<std::string> &input) {
   int ans = 0;
   int n = input.size();
   for (int i = 0; i < n; ++i) {
-    if (input[i].size() == 0) {
-      break;
-    }
     regex num(R"(([0-9]+))");
 
     int start = input[i].find(':');
@@ -58,9 +55,6 @@ std::string y2023::solve_04b(const std::vector<std::string> &input) {
   int n = input.size();
   vector<int> cards(n, 1);
   for (int i = 0; i < n; ++i) {
-    if (input[i].size() == 0) {
-      break;
-    }
     regex num(R"(([0-9]+))");
 
     int start = input[i].find(':');
