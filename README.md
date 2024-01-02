@@ -5,7 +5,8 @@ This repository contains my solutions for [Advent of Code](https://adventofcode.
 # Solved puzzles
 - YEAR 2020: days 1-15
 - YEAR 2021: days 1-18, 20-21
-- YEAR 2022: days 1-25 (partially unoptimized)
+- YEAR 2022: all (partially unoptimized)
+- YEAR 2023: all
 
 # Usage
 This repository intentionally does not contain puzzle inputs (they vary for each user), so at first you need to acquire them.
