@@ -6,12 +6,36 @@
 #include <climits>
 
 /**
- * @brief Create vector of numbers from string.
+ * @brief Create vector of strings from string.
  * 
- * @param line String of comma-delimited integers.
- * @return vector<int> Vector of integers.
+ * @param line Input string
+ * @param delim Delimiter.
+ * @return vector<int> Vector of strings.
  */
-std::vector<int> parseLineOfNumbers(const std::string &line);
+std::vector<std::string> split(const std::string &line, const std::string &delim = ",");
+
+/**
+ * @brief Load input into map of characters.
+ * 
+ * @param input Puzzle input (array of strings)
+ * @return std::vector<std::vector<char>> 2D character array
+ */
+std::vector<std::vector<char>> char_map(const std::vector<std::string> &input);
+
+/**
+ * @brief Print map of characters
+ * 
+ * @param input Map of characters
+ */
+void print_map(const std::vector<std::vector<char>> &m);
+
+/**
+ * @brief Load input into vector of character maps.
+ * 
+ * @param input Puzzle input (array of strings)
+ * @return std::vector<std::vector<std::vector<char>>> Vector of 2D character vectors.
+ */
+std::vector<std::vector<std::vector<char>>> char_map_vec(const std::vector<std::string> &input);
 
 /**
  * @brief Convert submatch value to integer.
@@ -47,4 +71,13 @@ int sign(int value);
 
 int first(const std::string &s, const int invalid = INT_MIN);
 
-std::vector<int> ints(const std::string &s);
+/**
+ * @brief Return all ints in the string as vector
+ * 
+ * @param s Input string
+ * @return std::vector<long long> Resulting vector
+ */
+std::vector<long long> ints(const std::string &s);
+
+
+std::vector<long long> signed_ints(const std::string &s);
