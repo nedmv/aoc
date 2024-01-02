@@ -53,7 +53,8 @@ def init_year_header(year):
 
       for i in range(1, 26):
         f.write(f'std::string solve_{fd(i)}a(const std::vector<std::string> &input);'+'\n')
-        f.write(f'std::string solve_{fd(i)}b(const std::vector<std::string> &input);'+'\n\n')
+        if (i != 25):
+          f.write(f'std::string solve_{fd(i)}b(const std::vector<std::string> &input);'+'\n\n')
       
       f.write('}\n')
     print(f'Successfully initialized {path}')
@@ -80,9 +81,10 @@ def init_puzzle_source(year, day):
       f.write('using namespace std;\n\n')
       f.write(f'std::string y{year}::solve_{day}a(const std::vector<std::string> &input)' + ' {\n\n\n')
       f.write('  return ERROR_STRING;\n')
-      f.write('}\n\n')
-      f.write(f'std::string y{year}::solve_{day}b(const std::vector<std::string> &input)' + ' {\n\n\n')
-      f.write('  return ERROR_STRING;\n')
+      if day != 25:
+        f.write('}\n\n')
+        f.write(f'std::string y{year}::solve_{day}b(const std::vector<std::string> &input)' + ' {\n\n\n')
+        f.write('  return ERROR_STRING;\n')
       f.write('}\n')
     print(f"Successfully initialized {path}")
 
